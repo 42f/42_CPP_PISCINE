@@ -1,4 +1,4 @@
-NAME := megaphone
+NAME := retro_facebook
 INCLUDES = ./
 SRCS_DIR = ./
 CC = clang++
@@ -49,7 +49,16 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
-SRCS += megaphone.cpp
+HEADER += $(NAME).hpp
+HEADER += Book.hpp
+HEADER += ContactSheet.hpp
+HEADER += constants.hpp
+
+SRCS += $(NAME).cpp
+SRCS += Book.cpp
+SRCS += ContactSheet.cpp
+SRCS += constants.cpp
+
 vpath %.cpp ./
 
 OBJS = $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRCS))
