@@ -1,5 +1,5 @@
-#ifndef CONTACTSHEET_HPP
-# define CONTACTSHEET_HPP
+#ifndef CONTACTSHEET_CLASS_HPP
+# define CONTACTSHEET_CLASS_HPP
 
 #include "retro_facebook.hpp"
 

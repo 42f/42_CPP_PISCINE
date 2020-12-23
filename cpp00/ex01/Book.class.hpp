@@ -1,8 +1,8 @@
-#ifndef BOOK_HPP
-# define BOOK_HPP
+#ifndef BOOK_CLASS_HPP
+# define BOOK_CLASS_HPP
 
 #include "retro_facebook.hpp"
-#include "ContactSheet.hpp"
+#include "ContactSheet.class.hpp"
 
 class Book
 {
@@ -18,7 +18,7 @@ class Book
 
 	private:
 
-		ContactSheet	contact[NB_OF_CONTACTS];
+		ContactSheet	_contact[NB_OF_CONTACTS];
 
 };
 

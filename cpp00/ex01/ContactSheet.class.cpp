@@ -1,4 +1,4 @@
-#include "ContactSheet.hpp"
+#include "ContactSheet.class.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------

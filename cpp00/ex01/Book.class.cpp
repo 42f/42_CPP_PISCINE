@@ -1,4 +1,4 @@
-#include "Book.hpp"
+#include "Book.class.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -37,7 +37,7 @@ bool	Book::add_one_contact( void )
 	std::string		field_input;
 	available_entry = 0;
 	while (available_entry < NB_OF_CONTACTS
-			&& this->contact[available_entry].info[FIRST_NAME].length() != 0)
+			&& this->_contact[available_entry].info[FIRST_NAME].length() != 0)
 		available_entry++;
 	if (available_entry < NB_OF_CONTACTS)
 	{
@@ -46,7 +46,7 @@ bool	Book::add_one_contact( void )
 			std::cout << "--> Please enter contact's " << fields_names[field] << ": " << std::endl;
 			while (getline(std::cin, field_input) && field_input.length() == 0)
 				std::cerr << "Empty entry, please enter something" << std::endl;
-			this->contact[available_entry].info[field].assign(field_input);
+			this->_contact[available_entry].info[field].assign(field_input);
 		}
 		return (true);
 	}
@@ -61,10 +61,10 @@ bool	Book::add_one_contact( void )
 bool	Book::show_one_contact( int index ) const
 {
 	index--;
-	if (index >= 0 && index < NB_OF_CONTACTS && this->contact[index].info[FIRST_NAME].length() != 0)
+	if (index >= 0 && index < NB_OF_CONTACTS && this->_contact[index].info[FIRST_NAME].length() != 0)
 	{
 		for (int field = 0; field < NB_OF_FIELDS; field ++)
-			std::cout << this->contact[index].info[field] << std::endl;
+			std::cout << this->_contact[index].info[field] << std::endl;
 		return (true);
 	}
 	else
@@ -84,13 +84,13 @@ bool	Book::show_all_contacts( void ) const
 	last_field = NICKNAME;
 	while (index < NB_OF_CONTACTS)
 	{
-		if (this->contact[index].info[FIRST_NAME].length() == 0)
+		if (this->_contact[index].info[FIRST_NAME].length() == 0)
 			break ;
   		std::cout << std::setw(10) << std::right;
 		std::cout << index + 1 << '|';
 		for (int field = 0; field <= last_field; field ++)
 		{
-			data = this->contact[index].info[field].substr(0, 9);
+			data = this->_contact[index].info[field].substr(0, 9);
 			if (data.size() == 9)
 				data.insert(data.end(), 1, '.');
   			std::cout << std::setw(10) << std::right;

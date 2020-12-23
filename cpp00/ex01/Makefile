@@ -55,13 +55,13 @@ ifeq ($(debug_mode), 1)
 endif
 
 HEADER += $(NAME).hpp
-HEADER += Book.hpp
-HEADER += ContactSheet.hpp
+HEADER += Book.class.hpp
+HEADER += ContactSheet.class.hpp
 HEADER += constants.hpp
 
 SRCS += $(NAME).cpp
-SRCS += Book.cpp
-SRCS += ContactSheet.cpp
+SRCS += Book.class.cpp
+SRCS += ContactSheet.class.cpp
 SRCS += constants.cpp
 
 vpath %.cpp ./

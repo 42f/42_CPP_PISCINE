@@ -1,4 +1,4 @@
-#include "Book.hpp"
+#include "Book.class.hpp"
 
 const std::string 	str_option_add = "ADD";
 const std::string 	str_option_search = "SEARCH";
