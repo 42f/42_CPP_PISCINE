@@ -1,3 +1,8 @@
+EOC = \033[0m
+BOLD = \033[1m
+GREEN = \033[32m
+YELLOW = \033[33m
+
 NAME := retro_facebook
 INCLUDES = ./
 SRCS_DIR = ./
@@ -71,10 +76,10 @@ $(OBJS): $(OBJ_DIR)%.o: %.cpp $(HEADER)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -I$(INCLUDES) -o $@
-	@echo "\033[32m$@ is ready !\033[0m"
+	@echo "🎉 \033[32m$@ is ready !\033[0m ✅"
 
 $(OBJ_DIR):
-	mkdir -p $@
+	@mkdir -p $@
 
 FORCE :
 
@@ -85,13 +90,13 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean
-	$(MAKE)
+	@$(MAKE)
 
 norme :
-	~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
+	@~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
 
 f : all
-	./$(NAME)
+	@./$(NAME)
 
 .PHONY: all clean fclean mclean re FORCE
 #.SILENT:

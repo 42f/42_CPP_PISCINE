@@ -7,23 +7,12 @@ class ContactSheet
 {
 
 	public:
-		std::string		first_name;
-		std::string		last_name;
-		std::string		nickname;
-		std::string		login;
-		std::string		postal_address;
-		std::string		email_address;
-		std::string		birthday_date;
-		std::string		favoritemeal;
-		std::string		underwear_color;
-		std::string		darkest_secret;
-		int				phone_number;
+		std::string		info[NB_OF_FIELDS];
 
 		ContactSheet();
 		~ContactSheet();
 
 	private:
-
 };
 
 #endif /* **************************************************** CONTACTSHEET_H */

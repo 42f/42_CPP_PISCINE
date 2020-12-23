@@ -6,9 +6,7 @@
 
 ContactSheet::ContactSheet()
 {
-	this->first_name = "Raymonde";
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -17,7 +15,6 @@ ContactSheet::ContactSheet()
 ContactSheet::~ContactSheet()
 {
 }
-
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------

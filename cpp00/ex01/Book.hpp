@@ -12,12 +12,13 @@ class Book
 		Book();
 		~Book();
 
-		void	show_all_contacts( void ) const;
-		void	show_one_contacts( int index ) const;
+		bool	show_all_contacts( void ) const;
+		bool	show_one_contact( int index ) const;
+		bool	add_one_contact( void );
 
 	private:
 
-		ContactSheet	contact[8];
+		ContactSheet	contact[NB_OF_CONTACTS];
 
 };
 
