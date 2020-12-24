@@ -87,11 +87,14 @@ fclean : clean
 re : fclean
 	@$(MAKE)
 
-norme :
-	@~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
+cmp: all
+	./$(NAME) > bvalette.log
+	cat ./19920104_091532.log | strings | cut --complement -b 1-18 > ref_cut.log
+	cat ./bvalette.log | strings | cut --complement -b 1-18 > bvalette_cut.log
+	colordiff -w $(($COLUMNS)) -y ./ref_cut.log ./bvalette_cut.log
 
 f : all
 	@./$(NAME)
 
-.PHONY: all clean fclean mclean re FORCE
+.PHONY: all clean fclean mclean re cmp FORCE
 #.SILENT:
