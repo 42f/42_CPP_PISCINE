@@ -10,6 +10,7 @@
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
+
 class Account {
 
 
@@ -28,7 +29,7 @@ public:
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
+	int		checkAmount( void ) const ;
 	void	displayStatus( void ) const;
 
 
@@ -49,8 +50,6 @@ private:
 	Account( void );
 
 };
-
-
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
