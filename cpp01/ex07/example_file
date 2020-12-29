@@ -1,0 +1,9 @@
+total 44K
+drwxrwxr-x  3 user42 user42 4.0K Dec 29 08:59 .
+drwxrwxr-x 12 user42 user42 4.0K Dec 24 13:15 ..
+-rw-rw-r--  1 user42 user42    0 Dec 29 08:59 example_file
+-rw-rw-r--  1 user42 user42  271 Dec 28 13:40 file
+-rw-rw-r--  1 user42 user42 1.9K Dec 29 08:58 Makefile
+drwxrwxr-x  2 user42 user42 4.0K Dec 29 08:57 objs_replace
+-rwxrwxr-x  1 user42 user42  20K Dec 29 08:57 replace
+-rw-r--r--  1 user42 user42 1.6K Dec 29 08:57 replace.cpp
