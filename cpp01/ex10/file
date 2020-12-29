@@ -1,0 +1,6 @@
+total 36K
+drwxrwxr-x  2 user42 user42 4.0K Dec 29 15:26 .
+drwxrwxr-x 14 user42 user42 4.0K Dec 29 14:35 ..
+-rwxrwxr-x  1 user42 user42  24K Dec 29 15:26 a.out
+-rw-rw-r--  1 user42 user42    0 Dec 29 15:27 file
+-rw-rw-r--  1 user42 user42  662 Dec 29 15:26 main.cpp
