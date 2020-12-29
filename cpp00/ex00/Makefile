@@ -78,9 +78,6 @@ fclean : clean
 re : fclean
 	$(MAKE)
 
-norme :
-	~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
-
 f : all
 	./$(NAME)
 

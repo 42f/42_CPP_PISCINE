@@ -71,7 +71,7 @@ $(OBJS): $(OBJ_DIR)%.o: %.cpp $(HEADER)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -I$(INCLUDES) -o $@
-	@echo "🎉 \033[32m$@ is ready !\033[0m ✅"
+	@echo "\n 🎉  \033[32m$@ is ready !\033[0m ✅  \n"
 
 $(OBJ_DIR):
 	@mkdir -p $@
@@ -88,9 +88,13 @@ re : fclean
 	@$(MAKE)
 
 cmp: all
+	@echo "\n ⏱  \033[32m Executing the program with piped stdout to file...\033[0m"
 	./$(NAME) > bvalette.log
+	@echo "\n 🗂  \033[32m Removing timestamp for comparaison...\033[0m"
 	cat ./19920104_091532.log | strings | cut --complement -b 1-18 > ref_cut.log
 	cat ./bvalette.log | strings | cut --complement -b 1-18 > bvalette_cut.log
+	@echo " ✅  \n"
+	@echo "\n 🎉  \033[32m Colordiff. Reference on the left, my output on the right\033[0m"
 	colordiff -w $(($COLUMNS)) -y ./ref_cut.log ./bvalette_cut.log
 
 f : all
