@@ -140,7 +140,7 @@ void	Account::_displayTimestamp( void ){
 
  	std::cout << '[' << aTime->tm_year + 1900; // Year is # years since 1900
 	std::cout << std::setw(2) << std::setfill('0') << aTime->tm_mon + 1; // Month is 0 - 11, add 1 to get a jan-dec 1-12 concept
-	std::cout << std::setw(2) << std::setfill('0') << aTime->tm_mday;;
+	std::cout << std::setw(2) << std::setfill('0') << aTime->tm_mday;
 	std::cout << '_';
 	std::cout << std::setw(2) << std::setfill('0') << aTime->tm_hour;
 	std::cout << std::setw(2) << std::setfill('0') << aTime->tm_min;
