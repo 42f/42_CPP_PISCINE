@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 09:26:08 by bvalette          #+#    #+#             */
-/*   Updated: 2020/12/29 09:19:21 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/12/29 09:22:26 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@
 void	output_av(const char *av)
 {
 	for ( int i = 0; av[i] != '\0'; i++ )
-	{
-		if ( std::isupper(av[i]) == false )
-			std::cout << (const char)std::toupper( av[i] );
-		else
-			std::cout << (const char)av[i];
-	}
+		std::cout << (const char)std::toupper( av[i] );
 }
 
 int		main( const int ac, const char **av ) {
