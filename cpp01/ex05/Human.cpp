@@ -1,10 +1,13 @@
-#include "HumanB.hpp"
+#include "Human.hpp"
+#include <iostream>
+#include <iomanip>
 #include <sstream>
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanB::HumanB(std::string const name) : _name(name)
+Human::Human()
 {
 }
 
@@ -12,7 +15,7 @@ HumanB::HumanB(std::string const name) : _name(name)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-HumanB::~HumanB()
+Human::~Human()
 {
 }
 
@@ -25,22 +28,22 @@ HumanB::~HumanB()
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	HumanB::attack( void ) const	{
-
-	std::cout << this->_name << std::uppercase;
-	std::cout << " attacks with his ";
-	if (this->_weapon != NULL)
-		std::cout << this->_weapon->getType() << std::endl;
-}
-
-void	HumanB::setWeapon(Weapon &weapon)
-{
-	this->_weapon = &weapon;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+Brain		&Human::getBrain( void )	{
+	return (this->_humanBrain);
+}
 
+std::string		Human::identify( void )	{
+	std::string				ret;
+	std::stringstream		sstr;
+
+	sstr << std::setbase(16);
+	sstr << &(this->_humanBrain);
+	ret = sstr.str();
+	return (ret);
+}
 /* ************************************************************************** */
