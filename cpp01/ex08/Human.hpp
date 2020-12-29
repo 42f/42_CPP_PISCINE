@@ -8,15 +8,14 @@ class Human	{
 
 	private:
 
-		void	meleeAttack(std::string const &target);
-		void	rangedAttack(std::string const &target);
-		void	intimidatingShout(std::string const &target);
-		void	nothingAttack(__attribute__((unused))std::string const &target);
+		void	meleeAttack(std::string const &target) const ;
+		void	rangedAttack(std::string const &target) const ;
+		void	intimidatingShout(std::string const &target) const ;
+		void	nothingAttack(__attribute__((unused))std::string const &target) const ;
 
 	public:
 
 		void	action(std::string const &action_name, std::string const &target);
-		void	fn( void );
 		Human();
 		~Human();
 };
