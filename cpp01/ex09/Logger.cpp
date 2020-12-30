@@ -8,14 +8,14 @@
 
 const std::string	Logger::toConsole = "toConsole";
 const std::string	Logger::toFile = "toFile";
-std::string			Logger::_destFile;
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
 Logger::Logger( std::string const destFile )
 {
- 	_destFile = destFile;
+ 	this->_destFile = destFile;
 }
 
 /*
@@ -41,7 +41,7 @@ int				Logger::_logToConsole(std::string logEntry)	{
 }
 
 int				Logger::_logToFile(std::string logEntry)	{
-	std::ofstream	ofs(Logger::_destFile.c_str(), std::ofstream::app);
+	std::ofstream	ofs(this->_destFile.c_str(), std::ofstream::app);
 
 	if (ofs.good() == true)
 	{
@@ -75,7 +75,7 @@ int				Logger::log(std::string const &dest, std::string const & message)	{
 	int				(Logger::*function_list[2])(std::string) = { &Logger::_logToConsole, &Logger::_logToFile };
 	int				i = 0;
 
-	while(dest_list[i] != dest && i < 2)
+	while(i < 1 && dest_list[i] != dest)
 		i++;
 	return ((this->*function_list[i])(Logger::_makeLogEntry(message)));
 }

@@ -22,7 +22,7 @@ class Logger
 		std::string					_makeLogEntry(std::string rawEntry);
 		int							_logToConsole(std::string entry);
 		int							_logToFile(std::string entry);
-		static std::string			_destFile;
+		std::string					_destFile;
 };
 
 #endif /* ********************************************************** LOGGER_H */

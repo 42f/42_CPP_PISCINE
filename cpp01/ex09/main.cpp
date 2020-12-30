@@ -11,8 +11,12 @@
 int		main( void )
 {
 	Logger		log("file.log");
+	Logger		log2("special.log");
 	std::string	entry;
 
+	log2.log(Logger::toFile, "Log creation");
+	log.log(Logger::toConsole, "Hello From log");
+	log2.log(Logger::toConsole, "Hello From log2");
 	log.log(Logger::toFile, "Log creation");
 	log.log(Logger::toFile, "Main function starts");
 	for (int i = 0; i < 2; i++)
@@ -30,4 +34,5 @@ int		main( void )
 			std::cout << "Logger function encoutered and error." << std::endl;
 	}
 	log.log(Logger::toFile, "Main function ends");
+	log.log("wrongArg", "WrongArgument as first parameter will Log to File by default");
 }
