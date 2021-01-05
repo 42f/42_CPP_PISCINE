@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-const int	Fixed::_nbBits = 8;
+const int	Fixed::_nbFractionalBits = 8;
 
 Fixed::Fixed()
 {

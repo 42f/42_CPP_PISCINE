@@ -11,10 +11,17 @@ class Fixed
 
 		Fixed();
 		Fixed( Fixed const & src );
+		Fixed( int const src );
+		Fixed( float const src );
 		~Fixed();
 
 		int			getRawBits( void ) const;
 		void		setRawBits( int const raw );
+		float		toFloat( void ) const;
+		int			toInt( void ) const;
+
+		void		printToBinary( float const src);
+		void		printToBinary( int const src);
 
 		Fixed &		operator=( Fixed const & rhs );
 
@@ -24,6 +31,6 @@ class Fixed
 		static const int	_nbFractionalBits;
 };
 
-// std::ostream &			operator<<( std::ostream & o, Fixed const & i );
+std::ostream &			operator<<( std::ostream & o, Fixed const & i );
 
 #endif /* *********************************************************** FIXED_H */
