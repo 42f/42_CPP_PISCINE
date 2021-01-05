@@ -21,7 +21,8 @@ class Fixed
 		int			toInt( void ) const;
 
 		void		printToBinary( float const src);
-		void		printToBinary( int const src);
+		void		printToBinary( int const src );
+		void		printToBinary( Fixed const *src);
 
 		Fixed &		operator=( Fixed const & rhs );
 
