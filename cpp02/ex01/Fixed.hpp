@@ -20,9 +20,9 @@ class Fixed
 		float		toFloat( void ) const;
 		int			toInt( void ) const;
 
-		void		printToBinary( float const src);
-		void		printToBinary( int const src );
-		void		printToBinary( Fixed const *src);
+		void		printToBinary( float const src) const ;
+		void		printToBinary( int const src ) const ;
+		void		printToBinary( Fixed const *src) const ;
 
 		Fixed &		operator=( Fixed const & rhs );
 
@@ -35,3 +35,9 @@ class Fixed
 std::ostream &			operator<<( std::ostream & o, Fixed const & i );
 
 #endif /* *********************************************************** FIXED_H */
+
+
+
+// 010001001001101001001101.11010100
+//      010001001_001101001.00110111         010100
+// 000000000000001001101001.00110111
