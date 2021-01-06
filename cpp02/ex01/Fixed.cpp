@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 #include <cmath>
 #include <sstream>
+#include <iomanip>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -24,8 +25,7 @@ Fixed::Fixed( Fixed const & src )
 
 Fixed::Fixed( int const src )	{
 	std::cout << "Int constructor called" << std::endl;
-
-	this->setRawBits(src<<Fixed::_nbFractionalBits);
+	this->setRawBits(src<<(Fixed::_nbFractionalBits - 1));
 }
 
 Fixed::Fixed( float const src )	{
@@ -62,19 +62,19 @@ Fixed::Fixed( float const src )	{
 	tmp_value |= 1<<(Fixed::_nbFractionalBits + exp - 1);
 	this->setRawBits( tmp_value );
 
-	// std::cout << "SRCS = ";
-	// Fixed::printToBinary(src);
-	// std::cout << "tmpS = ";
-	// Fixed::printToBinary(tmp_src);
-	// std::cout << "tmpV1= ";
-	// Fixed::printToBinary(tmp_value);
-	// std::cout << "toFL = ";
-	// Fixed::printToBinary(this->toFloat());
-	// std::cout << "toInt= ";
-	// Fixed::printToBinary(this->toInt());
-	// std::cout << "Fixd = ";
-	// Fixed::printToBinary(this);
-	// std::cout << "exp = " << exp << std::endl;
+	std::cout << "SRCS = ";
+	Fixed::printToBinary(src);
+	std::cout << "tmpS = ";
+	Fixed::printToBinary(tmp_src);
+	std::cout << "tmpV1= ";
+	Fixed::printToBinary(tmp_value);
+	std::cout << "toFL = ";
+	Fixed::printToBinary(this->toFloat());
+	std::cout << "toInt= ";
+	Fixed::printToBinary(this->toInt());
+	std::cout << "Fixd = ";
+	Fixed::printToBinary(this);
+	std::cout << "exp = " << exp << std::endl;
 }
 
 /*
@@ -103,7 +103,9 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 {
-	o << std::fixed;
+	// o << std::setw(16);
+	// o << std::setprecision(6);
+	// o << std::fixed;
 	o << i.toFloat();
 	return o;
 }
@@ -135,15 +137,16 @@ float					Fixed::toFloat( void ) const	{
 	// std::cout << "toFL2= ";
 	// Fixed::printToBinary(output);
 	output |= src<<(23 - firstBit);
+
 	// std::cout << "toFL3= ";
 	// Fixed::printToBinary(output);
-	// if (this->toInt() < 0)
-		// output |= 1<<31 | output;
+	if ((src & (1<<31)) == 1)
+		output |= 1<<31;
 	return (*(float *)&output);
 }
 
 int						Fixed::toInt( void ) const		{
-	return (this->getRawBits()>>(Fixed::_nbFractionalBits - 1));
+	return (roundf(this->toFloat()));
 }
 
 /*
