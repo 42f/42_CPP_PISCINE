@@ -45,13 +45,6 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, Fixed const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
