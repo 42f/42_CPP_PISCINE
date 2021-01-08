@@ -34,8 +34,8 @@ size_t		wordCount(char const *str)	{
 
 Fixed		operation(float operand1, char operatorSign, float operand2)	{
 	size_t const		nbOpe = 4;
-	char const			ope[nbOpe] = {'+', '-', '*', '/'};
-	Fixed				(*f[nbOpe])(Fixed, Fixed) =	{ opAdd, opSub, opMult, opDiv};
+	char const			ope[nbOpe] = {'*', '/', '+', '-'};
+	Fixed				(*f[nbOpe])(Fixed, Fixed) =	{ opMult, opDiv, opAdd, opSub};
 	Fixed				output;
 
 	size_t	i = 0;
@@ -47,17 +47,10 @@ Fixed		operation(float operand1, char operatorSign, float operand2)	{
 	return (output);
 }
 
-/*
-		std::cout << "__________________" << std::endl;
-		std::cout << operands.c_str() << std::endl;
-		std::cout << operatorSigns.c_str() << std::endl;
-
-		std::cout << "data --> " << op1 << " " << opSign << " " << op2 << std::endl;
-		std::cout << "RESULT ==> " << opResult.str().c_str() << std::endl;
-*/
-
 void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream &operatorSignsStream)	{
 
+	size_t const		nbOpe = 4;
+	char const			ope[nbOpe] = {'*', '/', '+', '-'};
 	std::string			operatorSigns = operatorSignsStream.str();
 	std::string			operands = operandsStream.str();
 	size_t				operatorPos = 0;
@@ -68,42 +61,61 @@ void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream 
 	float				op2;
 	char				opSign;
 	std::stringstream	opResult;
+	std::stringstream	op2Len;
+	size_t				i = 0;
 
-	while ((operatorPos = operatorSigns.find_first_of('*', operatorPos)) < operatorSigns.length())
+	while (i < nbOpe)
 	{
-		opResult.str("");
-		if (operatorPos != std::string::npos)
+		if ((operatorPos = operatorSigns.find_first_of(ope[i], operatorPos)) < operatorSigns.length())
 		{
-			for (size_t i = 0; i < operatorPos; i++)
+		// std::cout << "\t\t\tbe (" << operands.c_str() << ")  " << operatorSigns.c_str()  << std::endl;
+			opResult.str("");
+			if (operatorPos != std::string::npos)
 			{
-				operand1Pos = operands.find_first_of(';', operand1Pos);
-				if (operand1Pos != std::string::npos)
-					operand1Pos++;
+				for (size_t i = 0; i < operatorPos; i++)
+				{
+					operand1Pos = operands.find_first_of(';', operand1Pos);
+					if (operand1Pos != std::string::npos)
+						operand1Pos++;
+				}
+				operand2Pos = operands.find_first_of(';', operand1Pos) + 1;
 			}
-			operand2Pos = operands.find_first_of(';', operand1Pos) + 1;
+
+			value.str(operands.substr(operand1Pos).c_str());
+			value >> op1;
+			value.str(operands.substr(operand2Pos).c_str());
+			value >> op2;
+			value.str(operatorSigns.substr(operatorPos).c_str());
+			value >> opSign;
+
+			op2Len << op2;
+			// std::cout << "DEBUG " << operand2Pos - operand1Pos << " . " << operand1Pos << " . " << operand2Pos << " . len " << op2Len.str().length() << std::endl;
+			operands.erase(operand1Pos , operand2Pos - operand1Pos + op2Len.str().length());
+			operatorSigns.erase(operatorPos, 1);
+			op2Len.str("");
+
+			opResult << (operation(op1, opSign, op2).toFloat());
+			operands.insert(operand1Pos, opResult.str());
 		}
-
-		value.str(operands.substr(operand1Pos).c_str());
-		value >> op1;
-		value.str(operands.substr(operand2Pos).c_str());
-		value >> op2;
-		value.str(operatorSigns.substr(operatorPos).c_str());
-		value >> opSign;
-
-		operands.erase(operand1Pos, operand2Pos - operand1Pos + 1);
-		operatorSigns.erase(operatorPos, 1);
-
-		opResult << (operation(op1, opSign, op2).toFloat()) ;
-
-		operands.insert(operand1Pos, opResult.str());
-
-		if (operatorPos == operatorSigns.length() - 1)
-			break ; 		// change sign here
-		else
-			operatorPos = 0;
+		if (operatorPos == operatorSigns.length() || operatorPos == std::string::npos)
+			i++;
+		else if (i == nbOpe)
+			break ;
+		operatorPos = 0;
 		operand1Pos = 0;
 		operand2Pos = 0;
+		// std::cout << "\t\t\taf (" << operands.c_str() << ")  " << operatorSigns.c_str()  << std::endl;
 	}
+	if (opResult.str().empty() == false)
+	{
+		std::cout << std::fixed;
+		std::cout << opResult.str().c_str() << std::endl;
+	}
+}
+
+bool		checkAv(std::string av, size_t nbOfOpe)	{
+
+	return (nbOfOpe % 2 != 0 && av.find_first_not_of("0123456789+-*/ ") == std::string::npos);
 }
 
 void		interpretorPreProcess(std::string av)	{
@@ -115,17 +127,20 @@ void		interpretorPreProcess(std::string av)	{
 	float				flValue;
 	char				signValue;
 
-	if (nbOfOpe % 2 == 0)
+	if (checkAv(av, nbOfOpe) == false)
 	{
-		std::cout << "Syntax Error in operations. (Please note this program does not manage () and ^. " << std::endl;
+		std::cout << "Syntax Error in operations." << std::endl;
 		return ;
 	}
 	for (int i = 0; i < ((int)nbOfOpe / 2) + 1; i++)
 	{
 		arg >> flValue;
 		operandsStream << flValue << ";";
-		arg >> signValue;
-		operatorSignsStream << signValue;
+		if (i < ((int)nbOfOpe / 2))
+		{
+			arg >> signValue;
+			operatorSignsStream << signValue;
+		}
 	}
 	interpretorProcess(operandsStream, operatorSignsStream);
 }
