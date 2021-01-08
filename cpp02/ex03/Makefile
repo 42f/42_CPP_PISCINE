@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := retro_facebook
+NAME := eval_expr
 INCLUDES = ./
 SRCS_DIR = ./
 CC = clang++
@@ -54,15 +54,10 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
-HEADER += $(NAME).hpp
-HEADER += Book.class.hpp
-HEADER += ContactSheet.class.hpp
-HEADER += constants.hpp
+HEADER += Fixed.hpp
 
 SRCS += $(NAME).cpp
-SRCS += Book.class.cpp
-SRCS += ContactSheet.class.cpp
-SRCS += constants.cpp
+SRCS += Fixed.cpp
 
 vpath %.cpp ./
 

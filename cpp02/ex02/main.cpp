@@ -2,31 +2,6 @@
 #include <iostream>
 #include <limits.h>
 
-// void	testConstuctorCopy(int const nbr)	{
-// 	std::cout << std::endl << "________ TEST COPY  with: " << nbr << "_____________" << std::endl;
-// 	Fixed src (nbr);
-// 	Fixed a = src;
-// 	std::cout 			   << "           a.toFLOAT ---> " << a.toFloat() << std::endl;
-// 	std::cout 			   << "           a.toINT -----> " << a.toInt() << std::endl;
-// 	std::cout 			   << "                a with << " << a << std::endl;
-// }
-
-// void	testFloat(float const nbr)	{
-// 	std::cout << std::endl << "________ TEST FLOAT with: " << nbr << "_____________" << std::endl;
-// 	Fixed a( nbr );
-// 	std::cout 			   << "           a.toFLOAT ---> " << a.toFloat() << std::endl;
-// 	std::cout 			   << "           a.toINT -----> " << a.toInt() << std::endl;
-// 	std::cout 			   << "                a with << " << a << std::endl;
-// }
-
-// void	testInt(int const nbr)	{
-// 	std::cout << std::endl << "________ TEST INT with: " << nbr << "_____________" << std::endl;
-// 	Fixed a( nbr );
-// 	std::cout 			   << "         a.toFLOAT ---> " << a.toFloat() << std::endl;
-// 	std::cout 			   << "         a.toINT -----> " << a.toInt() << std::endl;
-// 	std::cout 			   << "              a with << " << a << std::endl;
-// }
-
 int		main( void )	{
 
 	std::cout << "----------  MAIN FROM SUBJECT ----------" << std::endl;
