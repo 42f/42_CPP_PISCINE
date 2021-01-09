@@ -2,12 +2,19 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <cstring>
+#include <stdlib.h>
 
 Fixed	opAdd(Fixed op1, Fixed op2)		{ return op1 + op2; }
 Fixed	opSub(Fixed op1, Fixed op2)		{ return op1 - op2; }
 Fixed	opMult(Fixed op1, Fixed op2)	{ return op1 * op2; }
-Fixed	opDiv(Fixed op1, Fixed op2)		{ return op1 / op2; }
+Fixed	opDiv(Fixed op1, Fixed op2)		{
+	if (op2 == 0)
+	{
+		std::cout << "Error: Cannot divide by 0." << std::endl;
+		return 0;
+	}
+	return op1 / op2;
+}
 
 #define OUT	0
 #define IN	1
@@ -47,10 +54,10 @@ Fixed		operation(float operand1, char operatorSign, float operand2)	{
 	return (output);
 }
 
-void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream &operatorSignsStream)	{
+std::string		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream &operatorSignsStream)	{
 
-	size_t const		nbOpe = 4;
-	char const			ope[nbOpe] = {'*', '/', '+', '-'};
+	size_t const		nbOpe = 2;
+	char const			*ope[nbOpe] = {"*/", "+-"};
 	std::string			operatorSigns = operatorSignsStream.str();
 	std::string			operands = operandsStream.str();
 	size_t				operatorPos = 0;
@@ -68,7 +75,6 @@ void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream 
 	{
 		if ((operatorPos = operatorSigns.find_first_of(ope[i], operatorPos)) < operatorSigns.length())
 		{
-		// std::cout << "\t\t\tbe (" << operands.c_str() << ")  " << operatorSigns.c_str()  << std::endl;
 			opResult.str("");
 			if (operatorPos != std::string::npos)
 			{
@@ -89,7 +95,6 @@ void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream 
 			value >> opSign;
 
 			op2Len << op2;
-			// std::cout << "DEBUG " << operand2Pos - operand1Pos << " . " << operand1Pos << " . " << operand2Pos << " . len " << op2Len.str().length() << std::endl;
 			operands.erase(operand1Pos , operand2Pos - operand1Pos + op2Len.str().length());
 			operatorSigns.erase(operatorPos, 1);
 			op2Len.str("");
@@ -104,33 +109,44 @@ void		interpretorProcess(std::ostringstream &operandsStream, std::ostringstream 
 		operatorPos = 0;
 		operand1Pos = 0;
 		operand2Pos = 0;
-		// std::cout << "\t\t\taf (" << operands.c_str() << ")  " << operatorSigns.c_str()  << std::endl;
 	}
-	if (opResult.str().empty() == false)
-	{
-		std::cout << std::fixed;
-		std::cout << opResult.str().c_str() << std::endl;
-	}
+	return (opResult.str());
 }
 
 bool		checkAv(std::string av, size_t nbOfOpe)	{
 
-	return (nbOfOpe % 2 != 0 && av.find_first_not_of("0123456789+-*/ ") == std::string::npos);
+	return (nbOfOpe % 2 != 0 && av.find_first_not_of("0123456789.+-*/() ") == std::string::npos);
 }
 
-void		interpretorPreProcess(std::string av)	{
+void			spaceAllOperators(std::string & av)	{
+	size_t		operatorPos = 0;
+	size_t		len;
+
+	len = av.length();
+	while ((operatorPos = av.find_first_of("*/()", operatorPos)) <= len)
+	{
+		av.insert(operatorPos + 1, 1, ' ');
+		av.insert(operatorPos, 1, ' ');
+		operatorPos += 2;
+	}
+	// std::cout << av.c_str() << std::endl;
+}
+
+std::string		interpretorPreProcess(std::string av)	{
 
 	std::istringstream	arg( av );
 	std::ostringstream	operandsStream;
 	std::ostringstream	operatorSignsStream;
-	size_t				nbOfOpe = wordCount(av.c_str());
+	size_t				nbOfOpe;
 	float				flValue;
 	char				signValue;
 
+	spaceAllOperators(av);
+	nbOfOpe = wordCount(av.c_str());
 	if (checkAv(av, nbOfOpe) == false)
 	{
 		std::cout << "Syntax Error in operations." << std::endl;
-		return ;
+		return ("");
 	}
 	for (int i = 0; i < ((int)nbOfOpe / 2) + 1; i++)
 	{
@@ -142,12 +158,12 @@ void		interpretorPreProcess(std::string av)	{
 			operatorSignsStream << signValue;
 		}
 	}
-	interpretorProcess(operandsStream, operatorSignsStream);
+	return(interpretorProcess(operandsStream, operatorSignsStream));
 }
-
 int			main( int ac, char **av )	{
 
-	std::string		arg[ac];
+	std::string			arg[ac];
+	std::stringstream	opResult;
 
 	if (ac != 2)
 	{
@@ -155,6 +171,18 @@ int			main( int ac, char **av )	{
 		return (1);
 	}
 	else
-		interpretorPreProcess(av[1]);
+		opResult.str(interpretorPreProcess(av[1]));
+	if (opResult.str().empty() == false)
+	{
+		std::cout << std::fixed;
+		float resultFl;
+		opResult >> resultFl;
+		std::cout << resultFl << std::endl;
+	}
+	std::string test("echo \"");
+	test.append(av[1]);
+	test.append("\" | bc -l");
+	std::cout << std::endl << "Result fromm bash bc command for [" << test.c_str() << "]: " << std::endl;
+	system(test.c_str());
 	return (0);
 }

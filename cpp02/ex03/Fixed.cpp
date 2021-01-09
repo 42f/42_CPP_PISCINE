@@ -52,7 +52,11 @@ bool	Fixed::operator>=( Fixed const & rhs ) const { return !(*this < rhs); }
 Fixed 	Fixed::operator+( Fixed const & rhs ) const	{ return this->toFloat() + rhs.toFloat(); }
 Fixed 	Fixed::operator-( Fixed const & rhs ) const	{ return this->toFloat() - rhs.toFloat(); }
 Fixed 	Fixed::operator*( Fixed const & rhs ) const	{ return this->toFloat() * rhs.toFloat(); }
-Fixed 	Fixed::operator/( Fixed const & rhs ) const	{ return this->toFloat() / rhs.toFloat(); }
+Fixed 	Fixed::operator/( Fixed const & rhs ) const	{
+	if (rhs.getRawBits() == 0)
+		return 0;
+	return this->toFloat() / rhs.toFloat();
+}
 
 Fixed &				Fixed::operator=( Fixed const & rhs )
 {
