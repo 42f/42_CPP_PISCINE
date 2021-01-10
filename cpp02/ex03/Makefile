@@ -90,6 +90,9 @@ re : fclean
 norme :
 	@~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
 
+test : all
+	@./tester.sh
+
 f : all
 	@./$(NAME)
 
