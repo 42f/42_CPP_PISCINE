@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   eval_expr.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/10 11:23:33 by bvalette          #+#    #+#             */
+/*   Updated: 2021/01/10 11:23:34 by bvalette         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <sstream>
-#include <stdlib.h>
 
 bool	opAdd(Fixed op1, Fixed op2, std::stringstream &opResult)	{ opResult << (op1 + op2); return true; }
 bool	opSub(Fixed op1, Fixed op2, std::stringstream &opResult)	{ opResult << (op1 - op2); return true; }
 bool	opMult(Fixed op1, Fixed op2, std::stringstream &opResult)	{ opResult << (op1 * op2); return true; }
 
-bool	opDiv(Fixed op1, Fixed op2, std::stringstream &opResult)		{
+bool	opDiv(Fixed op1, Fixed op2, std::stringstream &opResult)	{
 	if (op2 == 0)
 	{
 		std::cout << "Error: Cannot divide by 0." << std::endl;
@@ -50,14 +61,24 @@ bool		operation(float &operand1, char &operatorSign, float &operand2, std::strin
 		return (false);
 }
 
-// std::string		operationProcess(std::ostringstream &operandsStream, std::ostringstream &operatorSignsStream)	{
+size_t			getOperand2Pos(std::string &operands, size_t &operand1Pos, size_t &operatorPos)	{
+
+	for (size_t i = 0; i < operatorPos; i++)
+	{
+		operand1Pos = operands.find_first_of(';', operand1Pos);
+		if (operand1Pos != std::string::npos)
+			operand1Pos++;
+	}
+	return (operands.find_first_of(';', operand1Pos) + 1);
+}
+
 std::string		operationProcess(std::string operands, std::string operatorSigns)	{
 
-	size_t const		nbOpe = 2;
-	char const			*ope[nbOpe] = {"*/", "+-"};
-	size_t				operatorPos = 0;
-	size_t				operand1Pos = 0;
-	size_t				operand2Pos = 0;
+	size_t const		nbOpeSet = 2;
+	char const			*ope[nbOpeSet] = {"*/", "+-"};
+	size_t				operatorPos;
+	size_t				operand1Pos;
+	size_t				operand2Pos;
 	std::istringstream	value;
 	float				op1;
 	float				op2;
@@ -66,22 +87,16 @@ std::string		operationProcess(std::string operands, std::string operatorSigns)	{
 	std::stringstream	op2Len;
 	size_t				i = 0;
 
-	while (i < nbOpe)
+	while (i < nbOpeSet)
 	{
+		operatorPos = 0;
+		operand1Pos = 0;
+		operand2Pos = 0;
 		if ((operatorPos = operatorSigns.find_first_of(ope[i], operatorPos)) < operatorSigns.length())
 		{
 			opResult.str("");
 			if (operatorPos != std::string::npos)
-			{
-				for (size_t i = 0; i < operatorPos; i++)
-				{
-					operand1Pos = operands.find_first_of(';', operand1Pos);
-					if (operand1Pos != std::string::npos)
-						operand1Pos++;
-				}
-				operand2Pos = operands.find_first_of(';', operand1Pos) + 1;
-			}
-
+				operand2Pos = getOperand2Pos(operands, operand1Pos, operatorPos);
 			value.str(operands.substr(operand1Pos).c_str());
 			value >> op1;
 			if (value.rdstate() && std::istringstream::failbit)
@@ -102,16 +117,10 @@ std::string		operationProcess(std::string operands, std::string operatorSigns)	{
 
 			if (operation(op1, opSign, op2, opResult) == false)
 				return ("");
-			else
-				operands.insert(operand1Pos, opResult.str());
+			operands.insert(operand1Pos, opResult.str());
 		}
 		if (operatorPos == operatorSigns.length() || operatorPos == std::string::npos)
 			i++;
-		else if (i == nbOpe)
-			break ;
-		operatorPos = 0;
-		operand1Pos = 0;
-		operand2Pos = 0;
 	}
 	return (opResult.str());
 }
@@ -162,8 +171,6 @@ std::string		operationParser(std::string &av)	{
 			operatorSignsStream << signValue;
 		}
 	}
-	// if (operatorSignsStream.str().length() != (nbOfOpe / 2))
-	// 	return ("");
 	return(operationProcess(operandsStream.str(), operatorSignsStream.str()));
 }
 
@@ -190,7 +197,6 @@ std::string		parenthesisParser(std::string &av)	{
 
 int			main( int const ac, char const **av )	{
 
-	std::string			arg[ac];
 	std::stringstream	opResult;
 
 	if (ac != 2)
