@@ -23,17 +23,16 @@ class FragTrap
 
 	private:
 
-		int 				_level;
-		int 				_energyPoints;
-		int					_hitPoints;
+		std::string	 const	_name;
+		unsigned int		_level;
+		unsigned int		_energyPoints;
+		unsigned int		_hitPoints;
 
-		std::string	const	_name;
-
-		static int const	_maxEnergyPoints;
-		static int const	_maxHitPoints;
-		static int const	_meleeAttackDamage;
-		static int const	_rangedAttackDamage;
-		static int const	_armorDamageReduction;
+		unsigned int const	_maxEnergyPoints;
+		unsigned int const	_maxHitPoints;
+		unsigned int const	_meleeAttackDamage;
+		unsigned int const	_rangedAttackDamage;
+		unsigned int const	_armorDamageReduction;
 
 };
 

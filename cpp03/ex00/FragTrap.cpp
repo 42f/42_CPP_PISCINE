@@ -6,24 +6,52 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-int	const	FragTrap::_maxHitPoints = 100;
-int	const	FragTrap::_maxEnergyPoints = 100;
-int	const	FragTrap::_meleeAttackDamage = 30;
-int	const	FragTrap::_rangedAttackDamage = 20;
-int	const	FragTrap::_armorDamageReduction = 5;
+FragTrap::FragTrap( std::string const name ) :	_name(name),
+												_level( 1),
+												_energyPoints( 100),
+												_hitPoints( 10),
+												_maxEnergyPoints( 100),
+												_maxHitPoints( 100),
+												_meleeAttackDamage( 30),
+												_rangedAttackDamage( 20),
+												_armorDamageReduction( 5)	{
 
-FragTrap::FragTrap( std::string const name ) : _name(name)
-{
 	std::cout << "Constructor by default Called" << std::endl;
-	this->_level = 1;
-	this->_energyPoints = 100;
-	this->_hitPoints = 100;
+
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
-FragTrap::FragTrap( std::string const name, const FragTrap & src ) : _name(name)
-{
+FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	_name(name),
+																		_level( 1),
+																		_energyPoints( 100),
+																		_hitPoints( 10),
+																		_maxEnergyPoints( 100),
+																		_maxHitPoints( 100),
+																		_meleeAttackDamage( 30),
+																		_rangedAttackDamage( 20),
+																		_armorDamageReduction( 5)	{
 	std::cout << "Constructor by copy Called" << std::endl;
+
 	*this = src;
+
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
+
 }
 
 /*
@@ -46,6 +74,7 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 	{
 		this->_level = rhs._level;
 		this->_energyPoints = rhs._energyPoints;
+		this->_hitPoints = rhs._hitPoints;
 	}
 	return *this;
 }
@@ -63,8 +92,8 @@ void				FragTrap::takeDamage(unsigned int amount)	{
 
 	int		energyBackUp = this->_energyPoints;
 
-	if (amount > FragTrap::_armorDamageReduction)
-		amount -= FragTrap::_armorDamageReduction;
+	if (amount > this->_armorDamageReduction)
+		amount -= this->_armorDamageReduction;
 	else
 		amount = 0;
 
@@ -77,15 +106,15 @@ void				FragTrap::takeDamage(unsigned int amount)	{
 }
 
 void				FragTrap::beRepaired(unsigned int amount)	{
-	if (this->_energyPoints + amount < FragTrap::_maxEnergyPoints)
+	if (this->_energyPoints + amount < this->_maxEnergyPoints)
 		this->_energyPoints += amount;
 	else
-		this->_energyPoints = FragTrap::_maxEnergyPoints;
+		this->_energyPoints = this->_maxEnergyPoints;
 
-	if (this->_hitPoints + amount < FragTrap::_maxHitPoints)
+	if (this->_hitPoints + amount < this->_maxHitPoints)
 		this->_hitPoints += amount;
 	else
-		this->_hitPoints = FragTrap::_maxHitPoints;
+		this->_hitPoints = this->_maxHitPoints;
 
 	std::cout << this->_name  << " found " << amount << " of mana... \"Sweet life juice!\""<< std::endl;
 }
@@ -95,8 +124,8 @@ unsigned int		FragTrap::rangedAttack(std::string const & target)	{
 	{
 		this->_hitPoints -= 15;
 		std::cout << "FR4G-T " << this->_name << " attacks  " << target ;
-		std::cout << " at range, causing " << FragTrap::_rangedAttackDamage << " poins of damage!" << std::endl;
-		return (FragTrap::_rangedAttackDamage);
+		std::cout << " at range, causing " << this->_rangedAttackDamage << " poins of damage!" << std::endl;
+		return (this->_rangedAttackDamage);
 	}
 	else
 		std::cout << "FR4G-T" << this->_name << " hit points are too low for a Ranged Attack" << std::endl;
@@ -108,8 +137,8 @@ unsigned int		FragTrap::meleeAttack(std::string const & target)	{
 	{
 		this->_hitPoints -= 15;
 		std::cout << "FR4G-T " << this->_name << " melee attack on " << target ;
-		std::cout << " causing " << FragTrap::_meleeAttackDamage << " poins of damage!" << std::endl;
-		return (FragTrap::_meleeAttackDamage);
+		std::cout << " causing " << this->_meleeAttackDamage << " poins of damage!" << std::endl;
+		return (this->_meleeAttackDamage);
 	}
 	else
 		std::cout << "FR4G-T" << this->_name << " hit points are too low for a Melee Attack" << std::endl;
