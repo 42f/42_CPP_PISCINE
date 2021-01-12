@@ -1,4 +1,4 @@
-#include "NinjaTrap.hpp"
+#include "ScavTrap.hpp"
 #include <stdlib.h>
 #include <sys/time.h>
 
@@ -6,18 +6,18 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-NinjaTrap::NinjaTrap( std::string const name ) : ClapTrap(name)	{
+ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name)	{
 
 	this->_level = 1;
-	this->_energyPoints = 120;
-	this->_hitPoints = 60;
-	this->_maxEnergyPoints = 120;
-	this->_maxHitPoints = 60;
-	this->_meleeAttackDamage = 60;
-	this->_rangedAttackDamage = 5;
-	this->_armorDamageReduction = 0;
+	this->_energyPoints = 50;
+	this->_hitPoints = 100;
+	this->_maxEnergyPoints = 50;
+	this->_maxHitPoints = 100;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 15;
+	this->_armorDamageReduction = 3;
 
-	std::cout << "NinjaTrap - Constructor by default Called" << std::endl;
+	std::cout << "SCAVTRAP - Constructor by default Called" << std::endl;
 
 	std::cout << " _name " << this->_name << std::endl;
 	std::cout << " _level " << this->_level << std::endl;
@@ -30,9 +30,9 @@ NinjaTrap::NinjaTrap( std::string const name ) : ClapTrap(name)	{
 	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
-NinjaTrap::NinjaTrap( std::string const name, const NinjaTrap & src )	:	ClapTrap(name)	{
+ScavTrap::ScavTrap( std::string const name, const ScavTrap & src )	:	ClapTrap(name)	{
 
-	std::cout << "NinjaTrap - Constructor by copy Called" << std::endl;
+	std::cout << "SCAVTRAP - Constructor by copy Called" << std::endl;
 
 	*this = src;
 
@@ -52,9 +52,9 @@ NinjaTrap::NinjaTrap( std::string const name, const NinjaTrap & src )	:	ClapTrap
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-NinjaTrap::~NinjaTrap()
+ScavTrap::~ScavTrap()
 {
-	std::cout << "NinjaTrap - Destructor Called" << std::endl;
+	std::cout << "SCAVTRAP - Destructor Called" << std::endl;
 }
 
 
@@ -62,7 +62,7 @@ NinjaTrap::~NinjaTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-NinjaTrap &				NinjaTrap::operator=( NinjaTrap const & rhs )
+ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -87,61 +87,66 @@ NinjaTrap &				NinjaTrap::operator=( NinjaTrap const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void				NinjaTrap::takeDamage(unsigned int amount)	{
+void				ScavTrap::takeDamage(unsigned int amount)	{
 
 	unsigned int	energyBackup = this->_energyPoints;
 	ClapTrap::takeDamage(amount);
 
-	std::cout << this->_name << " says: \"I AM ON FIRE!!! OH GOD, PUT ME OUT!!!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
+	std::cout << this->_name << " says: \"My robotic flesh! AAAAAAAAAAAAAHH!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
 }
 
-void				NinjaTrap::beRepaired(unsigned int amount)	{
+void				ScavTrap::beRepaired(unsigned int amount)	{
 
 	ClapTrap::beRepaired(amount);
 
-	std::cout << this->_name  << " found " << amount << " of mana... \"Salmon, my favorite!!!\""<< std::endl;
+	std::cout << this->_name  << " found " << amount << " of mana... \"Sweet life juice!\""<< std::endl;
 }
 
-unsigned int		NinjaTrap::rangedAttack(std::string const & target)	{
+unsigned int		ScavTrap::rangedAttack(std::string const & target)	{
 
 	int		output = ClapTrap::rangedAttack(target);
 
 	if (output > 0)
 	{
-		std::cout << "NINJ4 TR4PP --  " << this->_name << " melee attack on " << target ;
+		std::cout << "#Sc4v TR4PP --  " << this->_name << " melee attack on " << target ;
 		std::cout << " causing " << this->_rangedAttackDamage << " poins of damage!" << std::endl;
 		return (output);
 	}
 	else
-		std::cout << "NINJ4 TR4PP --  " << this->_name << " hit points are too low for a Ranged Attack" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->_name << " hit points are too low for a Ranged Attack" << std::endl;
 	return (0);
 }
 
-unsigned int		NinjaTrap::meleeAttack(std::string const & target)	{
+unsigned int		ScavTrap::meleeAttack(std::string const & target)	{
 
 	int		output = ClapTrap::meleeAttack(target);
 
 	if (output > 0)
 	{
-		std::cout << "NINJ4 TR4PP --  " << this->_name << " attacks  " << target ;
+		std::cout << "#Sc4v TR4PP --  " << this->_name << " attacks  " << target ;
 		std::cout << " at range, causing " << this->_meleeAttackDamage << " poins of damage!" << std::endl;
 		return (output);
 	}
 	else
-		std::cout << "NINJ4 TR4PP --  " << this->_name << " hit points are too low for a Melee Attack" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->_name << " hit points are too low for a Melee Attack" << std::endl;
 	return (0);
 }
 
-void				NinjaTrap::ninjaShoeBox(FragTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor FragTrap !!!!!!!!" << std::endl;
-}
+unsigned int		ScavTrap::challengeNewcomer(std::string const & target)	{
 
-void				NinjaTrap::ninjaShoeBox(ScavTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor ScavTrap !!!!!!!!" << std::endl;
-}
+	std::string		attackList[] = { "You versus me! Me versus you! Either way!", "Dance battle! Or, you know... regular battle.",
+									"Man versus machine! Very tiny streamlined machine!",
+									"5G-Vaccine-Nano-Particules fight for brain control by Bill Gates",
+									"Pony vs. Machine" };
+	size_t			nbOfAttacks = sizeof(attackList) / sizeof(std::string);
+	struct timeval	tv;
+	int				damage;
 
-void				NinjaTrap::ninjaShoeBox(NinjaTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor NinjaTrap !!!!!!!!" << std::endl;
+	gettimeofday(&tv, NULL);
+	srand(tv.tv_usec);
+	std::cout << this->_name << " sends \"" << attackList[rand() % nbOfAttacks] << "\" challenge to " << target << std::endl;
+	damage = (rand() % 25);
+	return (damage > 10 ? damage : 10);
 }
 
 /* ************************************************************************** */
