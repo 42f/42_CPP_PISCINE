@@ -12,7 +12,6 @@ int		main( void )	{
 
 	std::cout << RED_COLOR;
 	FragTrap	bob("Bob");
-	// FragTrap	marcel("Marcel");
 	FragTrap	marcel("Marcel", bob);
 	std::cout << RESET_COLOR << std::endl;
 	int			damage;

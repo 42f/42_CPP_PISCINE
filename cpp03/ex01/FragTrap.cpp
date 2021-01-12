@@ -30,7 +30,7 @@ FragTrap::FragTrap( std::string const name ) : _name(name)	{
 	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
-FragTrap::FragTrap( std::string const name, const FragTrap & src )	: _name(name)	{
+FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	_name(name)	{
 
 	std::cout << "Constructor by copy Called" << std::endl;
 
