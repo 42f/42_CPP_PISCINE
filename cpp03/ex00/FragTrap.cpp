@@ -6,15 +6,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap( std::string const name ) :	_name(name),
-												_level( 1),
-												_energyPoints( 100),
-												_hitPoints( 10),
-												_maxEnergyPoints( 100),
-												_maxHitPoints( 100),
-												_meleeAttackDamage( 30),
-												_rangedAttackDamage( 20),
-												_armorDamageReduction( 5)	{
+FragTrap::FragTrap( std::string const name ) : _name(name)	{
+
+	this->_level = 1;
+	this->_energyPoints = 100;
+	this->_hitPoints = 10;
+	this->_maxEnergyPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_meleeAttackDamage = 30;
+	this->_rangedAttackDamage = 20;
+	this->_armorDamageReduction = 5;
 
 	std::cout << "Constructor by default Called" << std::endl;
 
@@ -29,15 +30,8 @@ FragTrap::FragTrap( std::string const name ) :	_name(name),
 	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
-FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	_name(name),
-																		_level( 1),
-																		_energyPoints( 100),
-																		_hitPoints( 10),
-																		_maxEnergyPoints( 100),
-																		_maxHitPoints( 100),
-																		_meleeAttackDamage( 30),
-																		_rangedAttackDamage( 20),
-																		_armorDamageReduction( 5)	{
+FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	_name(name)	{
+
 	std::cout << "Constructor by copy Called" << std::endl;
 
 	*this = src;
@@ -75,6 +69,11 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 		this->_level = rhs._level;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
+		this->_maxEnergyPoints = rhs._maxEnergyPoints;
+		this->_maxHitPoints = rhs._maxHitPoints;
+		this->_meleeAttackDamage = rhs._meleeAttackDamage;
+		this->_rangedAttackDamage = rhs._rangedAttackDamage;
+		this->_armorDamageReduction = rhs._armorDamageReduction;
 	}
 	return *this;
 }

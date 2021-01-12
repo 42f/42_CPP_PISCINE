@@ -28,11 +28,11 @@ class FragTrap
 		unsigned int		_energyPoints;
 		unsigned int		_hitPoints;
 
-		unsigned int const	_maxEnergyPoints;
-		unsigned int const	_maxHitPoints;
-		unsigned int const	_meleeAttackDamage;
-		unsigned int const	_rangedAttackDamage;
-		unsigned int const	_armorDamageReduction;
+		unsigned int 		_maxEnergyPoints;
+		unsigned int 		_maxHitPoints;
+		unsigned int 		_meleeAttackDamage;
+		unsigned int 		_rangedAttackDamage;
+		unsigned int 		_armorDamageReduction;
 
 };
 
