@@ -6,7 +6,7 @@
 # include <sstream>
 # include <string>
 
-class Victim : private Character
+class Victim : protected Character
 {
 
 	public:
@@ -17,8 +17,9 @@ class Victim : private Character
 
 		void						sayHello( void ) const;
 		std::string					introduce( void ) const;
+		void						getPolymorphed( void ) const;
 
-	private:
+	protected:
 		Victim();
 		Victim( Victim const & src );
 };

@@ -14,14 +14,14 @@ class Character
 		virtual Character &		operator=( Character const & rhs );
 		~Character();
 
-		std::string			getName( void ) const;
+		std::string		getName( void ) const;
 
 		std::string		_name;
 
 	protected:
 
+		void			setName( std::string const &name );
 		Character();
-		void								setName( std::string const &name );
 
 	private:
 

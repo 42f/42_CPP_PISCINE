@@ -1,5 +1,7 @@
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
+#include "Peon.hpp"
+#include "MightyGoblin.hpp"
 
 #ifndef RESET_COLOR
 # define RESET_COLOR   "\033[0m"
@@ -13,7 +15,6 @@ int		main( void )	{
 
 	std::cout << RED_COLOR << "----------MAIN FROM SUBJECT-----------" << RESET_COLOR << std::endl;
 	{
-/*
 		Sorcerer robert("Robert", "the Magnificent");
 
 		Victim jim("Jimmy");
@@ -22,19 +23,26 @@ int		main( void )	{
 		std::cout << robert << jim << joe;
 		robert.polymorph(jim);
 		robert.polymorph(joe);
-*/
 	}
 	std::cout << RED_COLOR << "----------END MAIN FROM SUBJECT--------" << RESET_COLOR << std::endl;
 
 	Sorcerer robert("Robert", "the Magnificent");
 
 	robert.sayHello();
-	std::cout << robert << std::endl;
+	std::cout << robert;
 
-	Victim	mel("Mel");
+	MightyGoblin	mel("Mel");
 
 	mel.sayHello();
-	// std::cout << mel << std::endl;
+	std::cout << mel;
+
+	robert.polymorph(mel);
+
+	Victim			mel2("Mel2");
+	mel2 = mel;
+
+	std::cout << mel2;
+	robert.polymorph(mel2);
 	return (0);
 }
 

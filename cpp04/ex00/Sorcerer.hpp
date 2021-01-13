@@ -2,6 +2,7 @@
 # define SORCERER_HPP
 
 # include "Character.hpp"
+# include "Victim.hpp"
 # include <iostream>
 # include <sstream>
 # include <string>
@@ -18,6 +19,7 @@ class Sorcerer : private Character
 		void						sayHello( void ) const;
 		std::string					introduce( void ) const;
 		std::string					getTitle( void ) const;
+		void						polymorph( Victim const & ) const;
 
 	private:
 		Sorcerer();

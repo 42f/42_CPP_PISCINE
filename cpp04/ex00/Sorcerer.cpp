@@ -62,11 +62,23 @@ std::string		Sorcerer::introduce( void ) const	{
 
 	std::stringstream	intro;
 
-	intro << "I am " << Character::getName() << ", " << this->getTitle() << " and I like ponies.";
+	intro << "I am " << Character::getName() << ", " << this->getTitle() << " and I like ponies." << std::endl;
 	return (intro.str());
 }
 
-std::string		Sorcerer::getTitle( void ) const 	{ return (this->_title); }
-void			Sorcerer::sayHello( void ) const 	{ std::cout << this->introduce() << std::endl; }
+std::string		Sorcerer::getTitle( void ) const 	{
+
+	return (this->_title);
+}
+
+void			Sorcerer::sayHello( void ) const 	{
+
+	std::cout << this->introduce();
+}
+
+void			Sorcerer::polymorph( Victim const &target )	const {
+
+	target.getPolymorphed();
+}
 
 /* ************************************************************************** */

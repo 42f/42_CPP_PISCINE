@@ -58,11 +58,15 @@ std::string		Victim::introduce( void ) const	{
 
 	std::stringstream	intro;
 
-	intro << "I'm " << Character::getName() << " and I like otters!";
+	intro << "I'm " << Character::getName() << " and I like otters!" << std::endl;
 	return (intro.str());
 }
 
-void			Victim::sayHello( void ) const 	{ std::cout << this->introduce() << std::endl; }
+void			Victim::sayHello( void ) const 	{ std::cout << this->introduce(); }
 
+void			Victim::getPolymorphed( void ) const	{
+
+	std::cout << this->getName() << " has been turned into a cute little sheep!" << std::endl;
+}
 
 /* ************************************************************************** */
