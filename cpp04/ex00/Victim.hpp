@@ -1,24 +1,28 @@
 #ifndef VICTIM_HPP
 # define VICTIM_HPP
 
+# include "Character.hpp"
 # include <iostream>
+# include <sstream>
 # include <string>
 
-class Victim
+class Victim : private Character
 {
 
 	public:
 
-		Victim();
-		Victim( Victim const & src );
+		Victim( std::string const name );
+		Victim &		operator=( Victim const & rhs );
 		~Victim();
 
-		Victim &		operator=( Victim const & rhs );
+		void						sayHello( void ) const;
+		std::string					introduce( void ) const;
 
 	private:
-
+		Victim();
+		Victim( Victim const & src );
 };
 
 std::ostream &			operator<<( std::ostream & o, Victim const & i );
 
-#endif /* ********************************************************** VICTIM_H */
+#endif /* ******************************************************** Victim_H */

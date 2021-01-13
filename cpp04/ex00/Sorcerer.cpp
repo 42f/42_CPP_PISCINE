@@ -8,14 +8,13 @@ Sorcerer::Sorcerer()
 {
 }
 
-Sorcerer::Sorcerer( std::string const name, std::string const title ) : _name(name), _title(title)	{
+Sorcerer::Sorcerer( std::string const name, std::string const title ) : Character(name), _title(title)	{
 
 	std::cout << name << ", " << title << " is born!" << std::endl;
 }
 
-Sorcerer::Sorcerer( const Sorcerer & src )
+Sorcerer::Sorcerer( __attribute__((unused))const Sorcerer & src )
 {
-	(void)src;
 }
 
 
@@ -25,7 +24,7 @@ Sorcerer::Sorcerer( const Sorcerer & src )
 
 Sorcerer::~Sorcerer()
 {
-	std::cout << this->_name << ", " << this->_title << " is dead. Consequences will never be the same!" << std::endl;
+	std::cout << Character::getName() << ", " << this->getTitle() << " is dead. Consequences will never be the same!" << std::endl;
 }
 
 
@@ -63,11 +62,10 @@ std::string		Sorcerer::introduce( void ) const	{
 
 	std::stringstream	intro;
 
-	intro << "I am " << this->getName() << ", " << this->getTitle() << " and I like ponies.";
+	intro << "I am " << Character::getName() << ", " << this->getTitle() << " and I like ponies.";
 	return (intro.str());
 }
 
-std::string		Sorcerer::getName( void ) const		{ return (this->_name); }
 std::string		Sorcerer::getTitle( void ) const 	{ return (this->_title); }
 void			Sorcerer::sayHello( void ) const 	{ std::cout << this->introduce() << std::endl; }
 

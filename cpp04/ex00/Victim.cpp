@@ -8,7 +8,12 @@ Victim::Victim()
 {
 }
 
-Victim::Victim( const Victim & src )
+Victim::Victim( std::string const name ) : Character(name)	{
+
+	std::cout << "Some random victim called " << this->getName() << " just appeared!" << std::endl;
+}
+
+Victim::Victim( __attribute__((unused))const Victim & src )
 {
 }
 
@@ -19,6 +24,7 @@ Victim::Victim( const Victim & src )
 
 Victim::~Victim()
 {
+	std::cout << "Victim " << this->getName() << " just died for no apparent reason!" << std::endl;
 }
 
 
@@ -28,19 +34,16 @@ Victim::~Victim()
 
 Victim &				Victim::operator=( Victim const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if (this != &rhs)
+		Character::_name = rhs._name;
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Victim const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << i.introduce();
 	return o;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -50,6 +53,16 @@ std::ostream &			operator<<( std::ostream & o, Victim const & i )
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+std::string		Victim::introduce( void ) const	{
+
+	std::stringstream	intro;
+
+	intro << "I'm " << Character::getName() << " and I like otters!";
+	return (intro.str());
+}
+
+void			Victim::sayHello( void ) const 	{ std::cout << this->introduce() << std::endl; }
 
 
 /* ************************************************************************** */
