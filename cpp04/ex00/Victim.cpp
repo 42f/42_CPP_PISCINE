@@ -1,14 +1,14 @@
-#include "Test.hpp"
+#include "Victim.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Test::Test()
+Victim::Victim()
 {
 }
 
-Test::Test( const Test & src )
+Victim::Victim( const Victim & src )
 {
 }
 
@@ -17,7 +17,7 @@ Test::Test( const Test & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Test::~Test()
+Victim::~Victim()
 {
 }
 
@@ -26,7 +26,7 @@ Test::~Test()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Test &				Test::operator=( Test const & rhs )
+Victim &				Victim::operator=( Victim const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -35,7 +35,7 @@ Test &				Test::operator=( Test const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Test const & i )
+std::ostream &			operator<<( std::ostream & o, Victim const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;
