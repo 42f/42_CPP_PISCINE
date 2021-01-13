@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := eval_expr
+NAME := fixed
 INCLUDES = ./
 SRCS_DIR = ./
 CC = clang++
@@ -56,7 +56,7 @@ endif
 
 HEADER += Fixed.hpp
 
-SRCS += $(NAME).cpp
+SRCS += main.cpp
 SRCS += Fixed.cpp
 
 vpath %.cpp ./
@@ -71,7 +71,7 @@ $(OBJS): $(OBJ_DIR)%.o: %.cpp $(HEADER)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -I$(INCLUDES) -o $@
-	@echo "🎉 \033[32m$@ is ready !\033[0m ✅"
+	@echo "\n 🎉  \033[32m$@ is ready !\033[0m ✅  \n"
 
 $(OBJ_DIR):
 	@mkdir -p $@
@@ -87,11 +87,18 @@ fclean : clean
 re : fclean
 	@$(MAKE)
 
-norme :
-	@~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
+cmp: all
+	@echo "\n ⏱  \033[32m Executing the program with piped stdout to file...\033[0m"
+	./$(NAME) > bvalette.log
+	@echo "\n 🗂  \033[32m Removing timestamp for comparaison...\033[0m"
+	cat ./19920104_091532.log | strings | cut --complement -b 1-18 > ref_cut.log
+	cat ./bvalette.log | strings | cut --complement -b 1-18 > bvalette_cut.log
+	@echo " ✅  \n"
+	@echo "\n 🎉  \033[32m Colordiff. Reference on the left, my output on the right\033[0m"
+	colordiff -w $(($COLUMNS)) -y ./ref_cut.log ./bvalette_cut.log
 
 f : all
-	@./tester.sh
+	@./$(NAME) | cat --number
 
-.PHONY: all clean fclean mclean re FORCE
+.PHONY: all clean fclean mclean re cmp FORCE
 #.SILENT:

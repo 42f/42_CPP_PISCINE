@@ -15,7 +15,6 @@ testEval()	{
 	((TESTID++))
 }
 
-
 TEST="10 * 12" ; testEval "$TEST" ; testBashBc "$TEST"
 TEST="10 * 12 + 2" ; testEval "$TEST" ; testBashBc "$TEST"
 TEST="10 _ 12" ; testEval "$TEST" ; testBashBc "$TEST"
