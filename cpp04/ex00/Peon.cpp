@@ -41,7 +41,7 @@ std::ostream &			operator<<( std::ostream & o, Peon const & i )
 Peon &					Peon::operator=( Peon const & rhs )
 {
 	if (this != &rhs)
-		Character::_name = rhs._name;
+		Victim::_name = rhs._name;
 	return *this;
 }
 

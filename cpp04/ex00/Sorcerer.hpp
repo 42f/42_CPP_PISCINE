@@ -1,13 +1,12 @@
 #ifndef SORCERER_HPP
 # define SORCERER_HPP
 
-# include "Character.hpp"
 # include "Victim.hpp"
 # include <iostream>
 # include <sstream>
 # include <string>
 
-class Sorcerer : private Character
+class Sorcerer
 {
 
 	public:
@@ -18,6 +17,7 @@ class Sorcerer : private Character
 
 		void						sayHello( void ) const;
 		std::string					introduce( void ) const;
+		std::string					getName( void ) const;
 		std::string					getTitle( void ) const;
 		void						polymorph( Victim const & ) const;
 
@@ -25,6 +25,7 @@ class Sorcerer : private Character
 		Sorcerer();
 		Sorcerer( Sorcerer const & src );
 
+		std::string		_name;
 		std::string		_title;
 };
 

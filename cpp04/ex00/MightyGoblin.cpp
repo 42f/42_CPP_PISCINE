@@ -41,7 +41,7 @@ std::ostream &			operator<<( std::ostream & o, MightyGoblin const & i )
 MightyGoblin &			MightyGoblin::operator=( MightyGoblin const & rhs )
 {
 	if (this != &rhs)
-		Character::_name = rhs._name;
+		Victim::_name = rhs._name;
 	return *this;
 }
 

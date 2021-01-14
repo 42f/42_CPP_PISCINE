@@ -8,7 +8,7 @@ Victim::Victim()
 {
 }
 
-Victim::Victim( std::string const name ) : Character(name)	{
+Victim::Victim( std::string const name ) : _name(name)	{
 
 	std::cout << "Some random victim called " << this->getName() << " just appeared!" << std::endl;
 }
@@ -35,7 +35,7 @@ Victim::~Victim()
 Victim &				Victim::operator=( Victim const & rhs )
 {
 	if (this != &rhs)
-		Character::_name = rhs._name;
+		this->_name = rhs._name;
 	return *this;
 }
 
@@ -58,10 +58,11 @@ std::string		Victim::introduce( void ) const	{
 
 	std::stringstream	intro;
 
-	intro << "I'm " << Character::getName() << " and I like otters!" << std::endl;
+	intro << "I'm " << this->getName() << " and I like otters!" << std::endl;
 	return (intro.str());
 }
 
+std::string		Victim::getName( void ) const	{ return (this->_name); }
 void			Victim::sayHello( void ) const 	{ std::cout << this->introduce(); }
 
 void			Victim::getPolymorphed( void ) const	{

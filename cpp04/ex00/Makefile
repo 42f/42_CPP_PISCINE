@@ -55,7 +55,6 @@ ifeq ($(debug_mode), 1)
 endif
 
 HEADER += ./Sorcerer.hpp
-HEADER += ./Character.hpp
 HEADER += ./Peon.hpp
 HEADER += ./MightyGoblin.hpp
 HEADER += ./Victim.hpp
@@ -65,7 +64,6 @@ SRCS += ./MightyGoblin.cpp
 SRCS += ./Victim.cpp
 SRCS += ./Sorcerer.cpp
 SRCS += ./Peon.cpp
-SRCS += ./Character.cpp
 
 vpath %.cpp ./
 
@@ -94,9 +92,6 @@ fclean : clean
 
 re : fclean
 	@$(MAKE)
-
-norme :
-	@~/.norminette/norminette.rb $(SRCS_DIR) $(INCLUDES)
 
 f : all
 	./$(NAME)

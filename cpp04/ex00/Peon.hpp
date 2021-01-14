@@ -1,7 +1,6 @@
 #ifndef PEON_HPP
 # define PEON_HPP
 
-# include "Character.hpp"
 # include "Victim.hpp"
 # include <iostream>
 # include <string>

@@ -43,6 +43,10 @@ int		main( void )	{
 
 	std::cout << mel2;
 	robert.polymorph(mel2);
+
+	Peon	marcus("Marcus");
+
+	robert.polymorph(marcus);
 	return (0);
 }
 

@@ -1,7 +1,6 @@
 #ifndef MIGHTYGOBLIN_HPP
 # define MIGHTYGOBLIN_HPP
 
-# include "Character.hpp"
 # include "Victim.hpp"
 # include <iostream>
 # include <string>
@@ -18,7 +17,6 @@ class MightyGoblin : public Victim
 	private:
 		MightyGoblin();
 		MightyGoblin( MightyGoblin const & src );
-
 
 };
 
