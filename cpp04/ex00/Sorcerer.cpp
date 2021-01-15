@@ -10,7 +10,7 @@ Sorcerer::Sorcerer()
 
 Sorcerer::Sorcerer( std::string const name, std::string const title ) : _name(name), _title(title)	{
 
-	std::cout << name << ", " << title << " is born!" << std::endl;
+	std::cout << name << ", " << title << ", is born!" << std::endl;
 }
 
 Sorcerer::Sorcerer( __attribute__((unused))const Sorcerer & src )
@@ -24,7 +24,7 @@ Sorcerer::Sorcerer( __attribute__((unused))const Sorcerer & src )
 
 Sorcerer::~Sorcerer()
 {
-	std::cout << this->getName() << ", " << this->getTitle() << " is dead. Consequences will never be the same!" << std::endl;
+	std::cout << this->getName() << ", " << this->getTitle() << ", is dead. Consequences will never be the same!" << std::endl;
 }
 
 
@@ -62,7 +62,7 @@ std::string		Sorcerer::introduce( void ) const	{
 
 	std::stringstream	intro;
 
-	intro << "I am " << this->getName() << ", " << this->getTitle() << " and I like ponies." << std::endl;
+	intro << "I am " << this->getName() << ", " << this->getTitle() << ", and I like ponies!" << std::endl;
 	return (intro.str());
 }
 

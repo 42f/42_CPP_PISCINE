@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 11:23:33 by bvalette          #+#    #+#             */
-/*   Updated: 2021/01/10 11:29:51 by bvalette         ###   ########.fr       */
+/*   Updated: 2021/01/14 09:59:50 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,15 @@ std::string		operationProcess(std::string operands, std::string operatorSigns)	{
 				operand2Pos = getOperand2Pos(operands, operand1Pos, operatorPos);
 			value.str(operands.substr(operand1Pos).c_str());
 			value >> op1;
-			if (value.rdstate() && std::istringstream::failbit)
+			if ((value.rdstate() & std::istringstream::failbit) != 0)
 				return("");
 			value.str(operands.substr(operand2Pos).c_str());
 			value >> op2;
-			if (value.rdstate() && std::istringstream::failbit)
+			if ((value.rdstate() & std::istringstream::failbit) != 0)
 				return("");
 			value.str(operatorSigns.substr(operatorPos).c_str());
 			value >> opSign;
-			if (value.rdstate() && std::istringstream::failbit)
+			if ((value.rdstate() & std::istringstream::failbit) != 0)
 				return("");
 
 			op2Len << op2;

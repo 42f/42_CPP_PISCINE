@@ -14,6 +14,11 @@ class MightyGoblin : public Victim
 		~MightyGoblin();
 		MightyGoblin &		operator=( MightyGoblin const & rhs );
 
+		std::string		introduce( void ) const;
+		void			beBorn( void ) const;
+		void			beDead( void ) const;
+		void			getPolymorphed( void ) const;
+
 	private:
 		MightyGoblin();
 		MightyGoblin( MightyGoblin const & src );

@@ -10,7 +10,7 @@ MightyGoblin::MightyGoblin()
 
 MightyGoblin::MightyGoblin( std::string const name ) : Victim(name) {
 
-	std::cout << "Goblining mightily" << std::endl;
+	this->beBorn();
 }
 
 MightyGoblin::MightyGoblin( __attribute__((unused))const MightyGoblin & src )
@@ -24,7 +24,7 @@ MightyGoblin::MightyGoblin( __attribute__((unused))const MightyGoblin & src )
 
 MightyGoblin::~MightyGoblin()
 {
-	std::cout << "Shlearkkk..." << std::endl;
+	this->beDead();
 }
 
 
@@ -50,6 +50,28 @@ MightyGoblin &			MightyGoblin::operator=( MightyGoblin const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+std::string		MightyGoblin::introduce( void ) const	{
+
+	std::stringstream	intro;
+
+	intro << "Hi, grgrgeghregh imnm " << this->getName() << " Bal'a dash, malanore !!!" << std::endl;
+	return (intro.str());
+}
+
+void			MightyGoblin::beDead( void )	const {
+
+	std::cout << "Shlearkkk..." << std::endl;
+}
+
+void			MightyGoblin::beBorn( void )	const {
+
+	std::cout << "Goblining mightily" << std::endl;
+}
+
+void			MightyGoblin::getPolymorphed( void ) const	{
+
+	std::cout << this->getName() << " has been turned into a cute Nice Goblin!" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -14,8 +14,14 @@ class Peon : public Victim
 		~Peon();
 		Peon &		operator=( Peon const & rhs );
 
-	private:
+		void			beBorn( void ) const;
+		void			beDead( void ) const;
+		void			getPolymorphed( void ) const;
+
+	protected:
 		Peon();
+
+	private:
 		Peon( Peon const & src );
 
 };

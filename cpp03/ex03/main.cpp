@@ -26,7 +26,6 @@ int		main( void )	{
 		ninja1.ninjaShoeBox(scav);
 		std::cout << RED_COLOR << "[ATTACK: ninja's special on " <<  ninja2.getName() << "]" << RESET_COLOR << std::endl;
 		ninja1.ninjaShoeBox(ninja2);
-		std::cout << RED_COLOR << "[ATTACK: ninja's special]" << RESET_COLOR << std::endl;
 		std::cout << RED_COLOR << "[DESTRUCTORS]" << RESET_COLOR << std::endl;
 	}
 

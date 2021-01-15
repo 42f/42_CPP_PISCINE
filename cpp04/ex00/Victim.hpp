@@ -14,9 +14,9 @@ class Victim
 		Victim &		operator=( Victim const & rhs );
 		~Victim();
 
-		void			sayHello( void ) const;
-		std::string		introduce( void ) const;
-		void			getPolymorphed( void ) const;
+		void					sayHello( void ) const;
+		virtual std::string		introduce( void ) const;
+		virtual void			getPolymorphed( void ) const;
 
 	protected:
 		Victim();
@@ -25,6 +25,11 @@ class Victim
 		std::string		getName( void ) const;
 
 		std::string		_name;
+
+		virtual void			beBorn( void ) const;
+		virtual void			beDead( void ) const;
+
+	private:
 };
 
 std::ostream &			operator<<( std::ostream & o, Victim const & i );

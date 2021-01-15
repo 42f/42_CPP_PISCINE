@@ -3,9 +3,9 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp04_00
-INCLUDES = ./
-SRCS_DIR = ./
+NAME := cpp04_01
+INCLUDES = ./includes
+SRCS_DIR = ./srcs
 CC = clang++
 OBJ_DIR = ./objs_$(NAME)/
 
@@ -54,20 +54,25 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
-HEADER += ./Sorcerer.hpp
-HEADER += ./Peon.hpp
-HEADER += ./BabyPeon.hpp
-HEADER += ./MightyGoblin.hpp
-HEADER += ./Victim.hpp
+HEADER += AWeapon.hpp
+HEADER += PlasmaRifle.hpp
+HEADER += PowerFist.hpp
+HEADER += Character.hpp
+HEADER += Enemy.hpp
+HEADER += RadScorpion.hpp
+HEADER += SuperMutant.hpp
+SRCS += AWeapon.cpp
+SRCS += PlasmaRifle.cpp
+SRCS += PowerFist.cpp
+SRCS += Character.cpp
+SRCS += Enemy.cpp
+SRCS += RadScorpion.cpp
+SRCS += SuperMutant.cpp
 
-SRCS += ./main.cpp
-SRCS += ./MightyGoblin.cpp
-SRCS += ./Victim.cpp
-SRCS += ./Sorcerer.cpp
-SRCS += ./Peon.cpp
-SRCS += ./BabyPeon.cpp
+SRCS += main.cpp
 
-vpath %.cpp ./
+vpath %.cpp ./srcs
+vpath %.hpp ./includes
 
 OBJS = $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRCS))
 

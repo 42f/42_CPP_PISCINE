@@ -10,7 +10,7 @@ Peon::Peon()
 
 Peon::Peon( std::string const name ) : Victim(name) {
 
-	std::cout << "Zog Zog." << std::endl;
+	this->>beBorn();
 }
 
 Peon::Peon( __attribute__((unused))const Peon & src )
@@ -24,7 +24,7 @@ Peon::Peon( __attribute__((unused))const Peon & src )
 
 Peon::~Peon()
 {
-	std::cout << "Bleuark..." << std::endl;
+	this->>beDead();
 }
 
 
@@ -49,7 +49,20 @@ Peon &					Peon::operator=( Peon const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void			Peon::beDead( void )	const {
 
+	std::cout << "Bleuark..." << std::endl;
+}
+
+void			Peon::beBorn( void )	const {
+
+	std::cout << "Zog zog." << std::endl;
+}
+
+void			Peon::getPolymorphed( void ) const	{
+
+	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+}
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

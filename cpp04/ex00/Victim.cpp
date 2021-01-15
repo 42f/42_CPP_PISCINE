@@ -10,7 +10,7 @@ Victim::Victim()
 
 Victim::Victim( std::string const name ) : _name(name)	{
 
-	std::cout << "Some random victim called " << this->getName() << " just appeared!" << std::endl;
+	this->beBorn();
 }
 
 Victim::Victim( __attribute__((unused))const Victim & src )
@@ -24,7 +24,7 @@ Victim::Victim( __attribute__((unused))const Victim & src )
 
 Victim::~Victim()
 {
-	std::cout << "Victim " << this->getName() << " just died for no apparent reason!" << std::endl;
+	this->beDead();
 }
 
 
@@ -49,6 +49,15 @@ std::ostream &			operator<<( std::ostream & o, Victim const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void			Victim::beDead( void )	const {
+
+	std::cout << "Victim " << this->getName() << " just died for no apparent reason!" << std::endl;
+}
+
+void			Victim::beBorn( void )	const {
+
+	std::cout << "Some random victim called " << this->getName() << " just appeared!" << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
