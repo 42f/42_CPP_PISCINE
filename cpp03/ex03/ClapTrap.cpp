@@ -89,6 +89,7 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 
 void				ClapTrap::takeDamage(unsigned int amount)	{
 
+ 	unsigned int	energyBackup = this->_energyPoints;
 	if (amount > this->_armorDamageReduction)
 		amount -= this->_armorDamageReduction;
 	else
@@ -98,6 +99,7 @@ void				ClapTrap::takeDamage(unsigned int amount)	{
 		this->_energyPoints -= amount;
 	else
 		this->_energyPoints = 0;
+ 	std::cout << this->_name << " says: \"My robotic flesh! AAAAAAAAAAAAAHH!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
 }
 
 void				ClapTrap::beRepaired(unsigned int amount)	{
@@ -110,6 +112,7 @@ void				ClapTrap::beRepaired(unsigned int amount)	{
 		this->_hitPoints += amount;
 	else
 		this->_hitPoints = this->_maxHitPoints;
+ 	std::cout << this->_name  << " found " << amount << " of mana... \"Health! Eww, what flavor is red?\""<< std::endl;
 }
 
 unsigned int		ClapTrap::rangedAttack(__attribute__((unused))std::string const & target)	{

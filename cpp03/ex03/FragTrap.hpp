@@ -18,8 +18,6 @@ class FragTrap : public ClapTrap
 
 		unsigned int	rangedAttack(std::string const & target);
 		unsigned int	meleeAttack(std::string const & target);
-		void			beRepaired(unsigned int amount);
-		void			takeDamage(unsigned int amount);
 
 		unsigned int	vaulthunter_dot_exe(std::string const & target);
 

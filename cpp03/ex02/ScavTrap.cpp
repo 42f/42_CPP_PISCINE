@@ -87,21 +87,6 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void				ScavTrap::takeDamage(unsigned int amount)	{
-
-	unsigned int	energyBackup = this->_energyPoints;
-	ClapTrap::takeDamage(amount);
-
-	std::cout << this->_name << " says: \"My robotic flesh! AAAAAAAAAAAAAHH!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
-}
-
-void				ScavTrap::beRepaired(unsigned int amount)	{
-
-	ClapTrap::beRepaired(amount);
-
-	std::cout << this->_name  << " found " << amount << " of mana... \"Sweet life juice!\""<< std::endl;
-}
-
 unsigned int		ScavTrap::rangedAttack(std::string const & target)	{
 
 	int		output = ClapTrap::rangedAttack(target);

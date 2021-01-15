@@ -21,8 +21,6 @@ class NinjaTrap : virtual public ClapTrap
 
 		unsigned int	rangedAttack(std::string const & target);
 		unsigned int	meleeAttack(std::string const & target);
-		void			beRepaired(unsigned int amount);
-		void			takeDamage(unsigned int amount);
 
 		void			ninjaShoeBox(FragTrap &clapTrap);
 		void			ninjaShoeBox(ScavTrap &clapTrap);

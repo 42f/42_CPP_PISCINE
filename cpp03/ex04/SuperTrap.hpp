@@ -19,8 +19,6 @@ class SuperTrap : public FragTrap, public NinjaTrap
 
 		unsigned int	rangedAttack(std::string const & target);
 		unsigned int	meleeAttack(std::string const & target);
-		void			beRepaired(unsigned int amount);
-		void			takeDamage(unsigned int amount);
 };
 
 #endif /* ******************************************************** SuperTrap_H */

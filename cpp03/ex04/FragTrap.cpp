@@ -87,21 +87,6 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void				FragTrap::takeDamage(unsigned int amount)	{
-
-	unsigned int	energyBackup = this->_energyPoints;
-	ClapTrap::takeDamage(amount);
-
-	std::cout << this->_name << " says: \"Outch ! Metal gears... frozen solid!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
-}
-
-void				FragTrap::beRepaired(unsigned int amount)	{
-
-	ClapTrap::beRepaired(amount);
-
-	std::cout << this->_name  << " found " << amount << " of mana... \"Health! Eww, what flavor is red?\""<< std::endl;
-}
-
 unsigned int		FragTrap::rangedAttack(std::string const & target)	{
 
 	int		output = ClapTrap::rangedAttack(target);

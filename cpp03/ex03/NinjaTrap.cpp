@@ -87,21 +87,6 @@ NinjaTrap &				NinjaTrap::operator=( NinjaTrap const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void				NinjaTrap::takeDamage(unsigned int amount)	{
-
-	unsigned int	energyBackup = this->_energyPoints;
-	ClapTrap::takeDamage(amount);
-
-	std::cout << this->_name << " says: \"I AM ON FIRE!!! OH GOD, PUT ME OUT!!!\" and got " << energyBackup - this->_energyPoints << " damage." << std::endl;
-}
-
-void				NinjaTrap::beRepaired(unsigned int amount)	{
-
-	ClapTrap::beRepaired(amount);
-
-	std::cout << this->_name  << " found " << amount << " of mana... \"Salmon, my favorite!!!\""<< std::endl;
-}
-
 unsigned int		NinjaTrap::rangedAttack(std::string const & target)	{
 
 	int		output = ClapTrap::rangedAttack(target);
@@ -133,15 +118,15 @@ unsigned int		NinjaTrap::meleeAttack(std::string const & target)	{
 }
 
 void				NinjaTrap::ninjaShoeBox(FragTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor FragTrap !!!!!!!!" << std::endl;
+	std::cout << this->_name <<" unleashes the UNICORN HORDE !!!" << clapTrap << ", you better run for your life poor FragTrap !!!!!!!! " << std::endl;
 }
 
 void				NinjaTrap::ninjaShoeBox(ScavTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor ScavTrap !!!!!!!!" << std::endl;
+	std::cout << this->_name <<" opens the enraged PONIES' CAGE !!!" << clapTrap << ", you better run for your life poor ScavTrap !!!!!!!! " << std::endl;
 }
 
 void				NinjaTrap::ninjaShoeBox(NinjaTrap &clapTrap)	{
-	std::cout << this->_name <<" Special Attack !!!" << clapTrap << ", you better run for your life poor NinjaTrap !!!!!!!!" << std::endl;
+	std::cout << this->_name <<" sends a buttload of 5G nanoparticules from COVID vaccin TO YOUR FACE to control your small useless brain from Bill Gate's office !!! " << clapTrap << ", you better run for your life poor NinjaTrap !!!!!!!!" << std::endl;
 }
 
 /* ************************************************************************** */
