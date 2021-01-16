@@ -4,8 +4,8 @@ GREEN = \033[32m
 YELLOW = \033[33m
 
 NAME := cpp04_00
-INCLUDES = ./
-SRCS_DIR = ./
+INCLUDES = ./includes
+SRCS_DIR = ./srcs
 CC = clang++
 OBJ_DIR = ./objs_$(NAME)/
 
@@ -67,7 +67,8 @@ SRCS += ./Sorcerer.cpp
 SRCS += ./Peon.cpp
 SRCS += ./BabyPeon.cpp
 
-vpath %.cpp ./
+vpath %.cpp ./srcs
+vpath %.hpp ./includes
 
 OBJS = $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRCS))
 
@@ -90,12 +91,18 @@ clean :
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) output.log
 
 re : fclean
 	@$(MAKE)
 
 f : all
 	./$(NAME)
+
+cmp: all
+	./$(NAME) > output.log
+	@echo "\n 🎉  \033[32m Colordiff. Reference on the left, my output on the right\033[0m"
+	diff -y ./subject.log ./output.log
+
 .PHONY: all clean fclean mclean re FORCE
 #.SILENT:

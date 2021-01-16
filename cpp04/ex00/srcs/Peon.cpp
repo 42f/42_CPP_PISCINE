@@ -10,7 +10,7 @@ Peon::Peon()
 
 Peon::Peon( std::string const name ) : Victim(name) {
 
-	this->>beBorn();
+	this->beBorn();
 }
 
 Peon::Peon( __attribute__((unused))const Peon & src )
@@ -24,7 +24,7 @@ Peon::Peon( __attribute__((unused))const Peon & src )
 
 Peon::~Peon()
 {
-	this->>beDead();
+	this->beDead();
 }
 
 

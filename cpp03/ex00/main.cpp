@@ -10,6 +10,7 @@
 
 int		main( void )	{
 
+	{
 	std::cout << RED_COLOR;
 	FragTrap	bob("Bob");
 	FragTrap	marcel("Marcel", bob);
@@ -35,7 +36,8 @@ int		main( void )	{
 	std::cout << std::endl;
 	marcel.takeDamage(damage);
 	std::cout << std::endl;
-
 	std::cout << RED_COLOR ;
+	}
+	std::cout << RESET_COLOR ;
 	return (0);
 }

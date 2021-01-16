@@ -21,38 +21,38 @@
 
 int main() {
 
-	// std::cout << RED_COLOR << "----------MAIN FROM SUBJECT-----------" << RESET_COLOR << std::endl;
-	// {
-	// 	Character* me = new Character("me");
+	std::cout << RED_COLOR << "----------MAIN FROM SUBJECT-----------" << RESET_COLOR << std::endl;
+	{
+		Character* me = new Character("me");
 
-	// 	std::cout << *me;
+		std::cout << *me;
 
-	// 	Enemy* b = new RadScorpion();
+		Enemy* b = new RadScorpion();
 
-	// 	AWeapon* pr = new PlasmaRifle();
+		AWeapon* pr = new PlasmaRifle();
 
-	// 	AWeapon* pf = new PowerFist();
+		AWeapon* pf = new PowerFist();
 
-	// 	me->equip(pr);
+		me->equip(pr);
 
-	// 	std::cout << *me;
+		std::cout << *me;
 
-	// 	me->equip(pf);
+		me->equip(pf);
 
-	// 	me->attack(b);
-	// 	std::cout << *me;
-	// 	me->equip(pr);
+		me->attack(b);
+		std::cout << *me;
+		me->equip(pr);
 
-	// 	std::cout << *me;
+		std::cout << *me;
 
-	// 	me->attack(b);
+		me->attack(b);
 
-	// 	std::cout << *me;
-	// 	me->attack(b);
+		std::cout << *me;
+		me->attack(b);
 
-	// 	std::cout << *me;
-	// }
-	// std::cout << RED_COLOR << "----------END MAIN FROM SUBJECT--------" << RESET_COLOR << std::endl << std::endl;
+		std::cout << *me;
+	}
+	std::cout << RED_COLOR << "----------END MAIN FROM SUBJECT--------" << RESET_COLOR << std::endl << std::endl;
 
 	{
 		std::cout << RED_COLOR << "[WEAPON CTOR]" << RESET_COLOR << std::endl;

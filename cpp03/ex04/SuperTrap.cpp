@@ -94,7 +94,7 @@ unsigned int		SuperTrap::rangedAttack(std::string const & target)	{
 
 unsigned int		SuperTrap::meleeAttack(std::string const & target)	{
 
-	return(NinjaTrap::meleeAttack(target));
+	return (NinjaTrap::meleeAttack(target));
 }
 
 /* ************************************************************************** */
