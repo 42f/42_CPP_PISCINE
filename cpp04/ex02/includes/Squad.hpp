@@ -13,6 +13,7 @@ class Squad : public ISquad
 
 		Squad();
 		Squad( Squad const & src );
+		Squad &		operator=( Squad const & rhs );
 		~Squad();
 
 
@@ -23,7 +24,6 @@ class Squad : public ISquad
 	private:
 		int					_count;
 		ISpaceMarine**		_units;
-		Squad &		operator=( Squad const & rhs );
 };
 
 #endif /* *********************************************************** SQUAD_H */

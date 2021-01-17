@@ -96,5 +96,51 @@ int main( void ) 	{
 
 	std::cout << std::endl << RED_COLOR << "[Test deep copy]" << RESET_COLOR << std::endl;
 	{
+
+		Squad		vlc1;
+		Squad		vlc2;
+
+		ISpaceMarine	*bob = new AssaultTerminator;
+		ISpaceMarine	*jim = new TacticalMarine;
+
+		vlc1.push(bob->clone());
+		vlc1.push(bob->clone());
+		vlc1.push(jim->clone());
+		vlc1.push(bob->clone());
+
+		delete bob;
+		delete jim;
+
+		std::cout << std::endl << RED_COLOR << "[		-- Count]" << RESET_COLOR << std::endl;
+		std::cout << "Count in vlc1 = " << vlc1.getCount() << std::endl;
+		std::cout << "Count in vlc2 = " << vlc2.getCount() << std::endl;
+
+		std::cout << std::endl << RED_COLOR << "[		-- vlc2 = vlc1]" << RESET_COLOR << std::endl;
+		vlc2 = vlc1;
+
+		std::cout << std::endl << RED_COLOR << "[		-- Count]" << RESET_COLOR << std::endl;
+		std::cout << "Count in vlc1 = " << vlc1.getCount() << std::endl;
+		std::cout << "Count in vlc2 = " << vlc2.getCount() << std::endl;
+
+		std::cout << std::endl << RED_COLOR << "[		-- Add some ISpaceMarines to vlc2]" << RESET_COLOR << std::endl;
+
+		std::cout << std::endl << RED_COLOR << "[		-- vlc2 = vlc1]" << RESET_COLOR << std::endl;
+		vlc2.push(vlc2.getUnit(0)->clone());
+		vlc2.push(vlc2.getUnit(2)->clone());
+		vlc2.push(vlc2.getUnit(0)->clone());
+
+		std::cout << std::endl << RED_COLOR << "[		-- Count]" << RESET_COLOR << std::endl;
+		std::cout << "Count in vlc1 = " << vlc1.getCount() << std::endl;
+		std::cout << "Count in vlc2 = " << vlc2.getCount() << std::endl;
+
+		std::cout << std::endl << RED_COLOR << "[		-- vlc1 = vlc2]" << RESET_COLOR << std::endl;
+		vlc1 = vlc2;
+
+		std::cout << std::endl << RED_COLOR << "[		-- Count]" << RESET_COLOR << std::endl;
+		std::cout << "Count in vlc1 = " << vlc1.getCount() << std::endl;
+		std::cout << "Count in vlc2 = " << vlc2.getCount() << std::endl;
+		std::cout << std::endl << RED_COLOR << "[		-- Return()]" << RESET_COLOR << std::endl;
+	}
+
 	return 0;
 }

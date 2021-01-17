@@ -8,9 +8,10 @@ Squad::Squad() : _count(0), _units(NULL)
 {
 }
 
-// Squad::Squad( const Squad & src )
-// {
-// }
+Squad::Squad( const Squad & src )
+{
+	*this = src;
+}
 
 
 /*
@@ -29,14 +30,23 @@ Squad::~Squad()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-// Squad &				Squad::operator=( Squad const & rhs )
-// {
-// 	//if ( this != &rhs )
-// 	//{
-// 		//this->_value = rhs.getValue();
-// 	//}
-// 	return *this;
-// }
+Squad &				Squad::operator=( Squad const & rhs )
+{
+	if ( this != &rhs )
+	{
+		if (this->getCount() != 0)
+		{
+			for (int i = 0; i < this->getCount(); i++)
+				delete this->_units[i];
+			delete [] this->_units;
+		}
+		this->_count = rhs.getCount();
+		this->_units = new ISpaceMarine*[this->getCount()];
+		for (int i = 0; i < this->getCount(); i++)
+			this->_units[i] = rhs._units[i]->clone();
+	}
+	return *this;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
