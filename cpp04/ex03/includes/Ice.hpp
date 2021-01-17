@@ -1,10 +1,12 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 # include <iostream>
 # include <string>
 
-class Ice
+class Ice : public AMateria
 {
 
 	public:
@@ -12,7 +14,8 @@ class Ice
 		Ice();
 		~Ice();
 
-
+		virtual Ice *		 	clone() const ;
+		virtual void			use(ICharacter& target);
 
 	private:
 		Ice &		operator=( Ice const & rhs );

@@ -4,21 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Character::Character()
-{
+Character::Character( std::string name ) : _name(name)	{
+
+	for (size_t i = 0; i < Character::_inventorySize; i++)
+		this->_inventory[i] = NULL;
 }
-
-
 
 /*
 ** ------------------------------- COPY CTOR  ---------------------------------
 */
 
-/*****
 Character::Character( const Character & src )
 {
+	*this = src;
 }
-*****/
 
 
 
@@ -28,6 +27,9 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
+	for (size_t i = 0; i < Character::_inventorySize; i++)
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
 }
 
 
@@ -36,29 +38,57 @@ Character::~Character()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-/*****
 Character &				Character::operator=( Character const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_value = rhs.getValue();
+		for (size_t i = 0; i < Character::_inventorySize; i++)
+		{
+			if (rhs._inventory[i] != NULL)
+				this->_inventory[i] = rhs._inventory[i]->clone();
+		}
 	}
 	return *this;
 }
-*****/
-
-/*****
-std::ostream &			operator<<( std::ostream & o, Character const & i )
-{
-	o << "Value = " << i.getValue();
-	return o;
-}
-*****/
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+
+std::string const & 	Character::getName() const	{
+
+	return (this->_name);
+}
+
+void 					Character::equip(AMateria* m)	{
+
+	if (m == NULL)
+		return;
+
+	for (size_t i = 0; i < Character::_inventorySize; i++)
+	{
+		if (this->_inventory[i] == m)
+			break ;
+		if (this->_inventory[i] == NULL)	{
+			this->_inventory[i] = m;
+			break ;
+		}
+	}
+}
+
+void 					Character::unequip(int idx)	{
+
+	if (idx >= 0 && (size_t)idx < Character::_inventorySize && this->_inventory[idx] != NULL)
+		this->_inventory[idx] = NULL;
+}
+
+void 					Character::use(int idx, ICharacter& target) 	{
+
+	if (idx >= 0 && (size_t)idx < Character::_inventorySize && this->_inventory[idx] != NULL)
+		this->_inventory[idx]->use(target);
+}
 
 
 

@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
 }
 
@@ -47,27 +47,24 @@ Ice &				Ice::operator=( Ice const & rhs )
 }
 *****/
 
-/*****
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
-{
-	o << "Value = " << i.getValue();
-	return o;
-}
-*****/
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+Ice*	 	Ice::clone() const {
+
+	return (new Ice);
+}
+
+void			Ice::use(ICharacter& target) {
+
+	AMateria::use(target);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
 
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-/*
-	• Ice: "* shoots an ice bolt at NAME *"
 */
 
 /* ************************************************************************** */

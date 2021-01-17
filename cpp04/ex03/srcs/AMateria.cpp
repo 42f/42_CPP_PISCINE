@@ -4,7 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AMateria::AMateria()
+// AMateria::AMateria()
+// {
+// }
+
+AMateria::AMateria(std::string const & type) : _xp(0), _type(type)
 {
 }
 
@@ -36,36 +40,25 @@ AMateria::~AMateria()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-/*****
 AMateria &				AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
-	{
-		this->_value = rhs.getValue();
-	}
+		this->_xp = rhs.getXP();
 	return *this;
 }
-*****/
-
-/*****
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
-{
-	o << "Value = " << i.getValue();
-	return o;
-}
-*****/
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
+void			AMateria::use(__attribute__((unused))ICharacter& target) { this->_xp += 10; };
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-
+std::string const & 	AMateria::getType() const	{ return (this->_type); }
+unsigned int 			AMateria::getXP() const		{ return (this->_xp); }
 
 /* ************************************************************************** */
