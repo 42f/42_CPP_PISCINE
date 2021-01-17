@@ -22,14 +22,16 @@ class Character
 		AWeapon *			getCurrentWeapon( void ) const ;
 		~Character();
 
+		static unsigned int	const	APMax = 40;
+		static unsigned int	const	APCost = 10;
 
 	private:
 		Character &		operator=( Character const & rhs );
 		Character( Character const & src );
 
-		std::string const		_name;
-		int						_ap;
-		AWeapon *				_currentWeapon;
+		std::string const			_name;
+		int							_ap;
+		AWeapon *					_currentWeapon;
 
 };
 

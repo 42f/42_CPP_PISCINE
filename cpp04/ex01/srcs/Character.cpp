@@ -43,10 +43,10 @@ std::ostream &		operator<<(std::ostream & o, Character const & i)
 
 
 void 				Character::recoverAP( void )	{
-	if (this->_ap + 10 > 40)
-		this->_ap = 40;
+	if (this->_ap + Character::APCost > Character::APMax)
+		this->_ap = Character::APMax;
 	else
-		this->_ap += 10;
+		this->_ap += Character::APCost;
 };
 
 void 				Character::equip(AWeapon* weapon)	{

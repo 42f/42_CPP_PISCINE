@@ -51,6 +51,10 @@ int main() {
 		me->attack(b);
 
 		std::cout << *me;
+
+		delete me;
+		delete pr;
+		delete pf;
 	}
 	std::cout << RED_COLOR << "----------END MAIN FROM SUBJECT--------" << RESET_COLOR << std::endl << std::endl;
 
@@ -74,13 +78,15 @@ int main() {
 		player.equip(&wa);
 		std::cout << RED_COLOR << "[CHARACTER << OVERLOAD]" << RESET_COLOR << std::endl;
 		std::cout << player;
+
 		std::cout << RED_COLOR << "[LOOP OF 10 ATTACKS FROM CHARACTER ON ENEMY]" << RESET_COLOR << std::endl;
-		for (int i = 0; i < 10 && badGuy != NULL; i++)
+		for (int i = 0; i < 8 && badGuy != NULL; i++)
 		{
-			std::cout << badGuy->getType() << " has " <<  badGuy->getHP() << " HP points."<< std::endl << std::endl;
+			int HPValue = badGuy->getHP();
+			std::cout << badGuy->getType() << " has " <<  HPValue << " HP points."<< std::endl << std::endl;
 			player.attack(badGuy);
-			if (badGuy->getHP() == 0)
-				break;
+			if (HPValue - wa.getDamage() <= 0)
+				break ;
 		}
 		std::cout << RED_COLOR << "[ENEMY DIED ONCE IT HAS REACHED 0 HP POINTS]" << RESET_COLOR << std::endl;
 	}

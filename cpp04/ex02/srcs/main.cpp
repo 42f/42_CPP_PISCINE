@@ -94,5 +94,7 @@ int main( void ) 	{
 		delete bob;
 	}
 
+	std::cout << std::endl << RED_COLOR << "[Test deep copy]" << RESET_COLOR << std::endl;
+	{
 	return 0;
 }
