@@ -1,0 +1,479 @@
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04'
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex00'
+make cpp04_00
+make[1]: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex00'
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./main.cpp  -I ./includes -o objs_cpp04_00/./main.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./MightyGoblin.cpp  -I ./includes -o objs_cpp04_00/./MightyGoblin.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./Victim.cpp  -I ./includes -o objs_cpp04_00/./Victim.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./Sorcerer.cpp  -I ./includes -o objs_cpp04_00/./Sorcerer.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./Peon.cpp  -I ./includes -o objs_cpp04_00/./Peon.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/./BabyPeon.cpp  -I ./includes -o objs_cpp04_00/./BabyPeon.o
+clang++ -std=c++98 -Wall -Wextra -Werror  ./objs_cpp04_00/./main.o  ./objs_cpp04_00/./MightyGoblin.o  ./objs_cpp04_00/./Victim.o  ./objs_cpp04_00/./Sorcerer.o  ./objs_cpp04_00/./Peon.o  ./objs_cpp04_00/./BabyPeon.o -I./includes -o cpp04_00
+🎉 [32mcpp04_00 is ready ![0m ✅
+make[1]: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex00'
+./cpp04_00
+[31m----------MAIN FROM SUBJECT-----------[0m
+Robert, the Magnificent, is born!
+Some random victim called Jimmy just appeared!
+Some random victim called Joe just appeared!
+Zog zog.
+I am Robert, the Magnificent, and I like ponies!
+I'm Jimmy and I like otters!
+I'm Joe and I like otters!
+Jimmy has been turned into a cute little sheep!
+Joe has been turned into a pink pony!
+Bleuark...
+Victim Joe just died for no apparent reason!
+Victim Jimmy just died for no apparent reason!
+Robert, the Magnificent, is dead. Consequences will never be the same!
+[31m----------END MAIN FROM SUBJECT--------[0m
+[31m----------PART 1 : adds MightyGoblin from Victim-----------[0m
+Robert, the Magnificent, is born!
+I am Robert, the Magnificent, and I like ponies!
+I am Robert, the Magnificent, and I like ponies!
+Some random victim called Mel just appeared!
+Goblining mightily
+Hi, grgrgeghregh imnm Mel Bal'a dash, malanore !!!
+Hi, grgrgeghregh imnm Mel Bal'a dash, malanore !!!
+Mel has been turned into a cute Nice Goblin!
+Some random victim called Mel2 just appeared!
+I'm Mel and I like otters!
+Mel has been turned into a cute little sheep!
+Some random victim called Marcus just appeared!
+Zog zog.
+I'm Marcus and I like otters!
+Marcus has been turned into a pink pony!
+Bleuark...
+Victim Marcus just died for no apparent reason!
+Victim Mel just died for no apparent reason!
+Shlearkkk...
+Victim Mel just died for no apparent reason!
+Robert, the Magnificent, is dead. Consequences will never be the same!
+[31m----------PART 2 : test Peon (from Victim)-----------[0m
+Some random victim called Peon just appeared!
+Zog zog.
+I'm Peon and I like otters!
+Bleuark...
+Victim Peon just died for no apparent reason!
+[31m----------PART 3 : adds BabyPeon from Peon (from Victim)-----------[0m
+Some random victim called babyPeon just appeared!
+Zog zog.
+I'm babyPeon and I like otters!
+HAAAAAAAAAAAAAAAAAAAAA Bleuark...
+Bleuark...
+Victim babyPeon just died for no apparent reason!
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex00'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex01'
+make cpp04_01
+make[1]: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex01'
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/AWeapon.cpp  -I ./includes -o objs_cpp04_01/AWeapon.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/SpaceGun.cpp  -I ./includes -o objs_cpp04_01/SpaceGun.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/PlasmaRifle.cpp  -I ./includes -o objs_cpp04_01/PlasmaRifle.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/PowerFist.cpp  -I ./includes -o objs_cpp04_01/PowerFist.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Character.cpp  -I ./includes -o objs_cpp04_01/Character.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Enemy.cpp  -I ./includes -o objs_cpp04_01/Enemy.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/LonelyStud.cpp  -I ./includes -o objs_cpp04_01/LonelyStud.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/RadScorpion.cpp  -I ./includes -o objs_cpp04_01/RadScorpion.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/SuperMutant.cpp  -I ./includes -o objs_cpp04_01/SuperMutant.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/main.cpp  -I ./includes -o objs_cpp04_01/main.o
+clang++ -std=c++98 -Wall -Wextra -Werror  ./objs_cpp04_01/AWeapon.o  ./objs_cpp04_01/SpaceGun.o  ./objs_cpp04_01/PlasmaRifle.o  ./objs_cpp04_01/PowerFist.o  ./objs_cpp04_01/Character.o  ./objs_cpp04_01/Enemy.o  ./objs_cpp04_01/LonelyStud.o  ./objs_cpp04_01/RadScorpion.o  ./objs_cpp04_01/SuperMutant.o  ./objs_cpp04_01/main.o -I./includes -o cpp04_01
+🎉 [32mcpp04_01 is ready ![0m ✅
+make[1]: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex01'
+./cpp04_01
+[31m----------MAIN FROM SUBJECT-----------[0m
+me has 40 AP and is unarmed
+* click click click *
+me has 40 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Power Fist
+* pschhh... SBAM! *
+me has 32 AP and wields a Power Fist
+me has 32 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Plasma Rifle
+* piouuu piouuu piouuu *
+me has 27 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Plasma Rifle
+* piouuu piouuu piouuu *
+* SPROTCH *
+me has 22 AP and wields a Plasma Rifle
+[31m----------END MAIN FROM SUBJECT--------[0m
+
+[31m[WEAPON CTOR][0m
+SpaceGun - 10 - 42
+* BAM BAM! -42 in ya face!  *
+[31m[CHARACTER CTOR][0m
+[31m[ENEMY CTOR][0m
+* Tadaaam *
+[31m[CHARACTER << OVERLOAD][0m
+Player1 has 40 AP and is unarmed
+[31m[ENEMY ATTACK WITH NO WEAPON(null)][0m
+[31m[ENEMY EQUIP FUNCTION CALL][0m
+[31m[CHARACTER << OVERLOAD][0m
+Player1 has 40 AP and wields a SpaceGun
+[31m[LOOP OF 10 ATTACKS FROM CHARACTER ON ENEMY][0m
+LonelyStud has 120 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+LonelyStud has 78 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+LonelyStud has 36 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+* Lonely Stud was absorbed by a BlackHole *
+[31m[ENEMY DIED ONCE IT HAS REACHED 0 HP POINTS][0m
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex01'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex02'
+make cpp04_02
+make[1]: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex02'
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/AssaultTerminator.cpp  -I ./includes -o objs_cpp04_02/AssaultTerminator.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/TacticalMarine.cpp  -I ./includes -o objs_cpp04_02/TacticalMarine.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Squad.cpp  -I ./includes -o objs_cpp04_02/Squad.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/main.cpp  -I ./includes -o objs_cpp04_02/main.o
+clang++ -std=c++98 -Wall -Wextra -Werror  ./objs_cpp04_02/AssaultTerminator.o  ./objs_cpp04_02/TacticalMarine.o  ./objs_cpp04_02/Squad.o  ./objs_cpp04_02/main.o -I./includes -o cpp04_02
+🎉 [32mcpp04_02 is ready ![0m ✅
+make[1]: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex02'
+./cpp04_02
+[31m----------MAIN FROM SUBJECT-----------[0m
+Tactical Marine ready for battle!
+* teleports from space *
+For the holy PLOT!
+* attacks with a bolter *
+* attacks with a chainsword *
+This code is unclean. PURIFY IT!
+* does nothing *
+* attacks with chainfists *
+Aaargh...
+I'll be back...
+[31m----------END MAIN FROM SUBJECT--------[0m
+
+
+[31m[Test with push limits - with TacticalMarine][0m
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+Tactical Marine ready for battle!
+
+GetCount() function call return = 0
+Try to push bob to the squad... return = 1
+Try to push bob to the squad... return = -1
+Try to push bob to the squad... return = -1
+Try to push bob to the squad... return = -1
+GetCount() function call return = 1
+
+Squad content = 1
+Squad content = 2
+Squad content = 3
+Squad content = 4
+Squad content = 5
+Squad content = 6
+Squad content = 7
+Squad content = 8
+Squad content = 9
+Squad content = 10
+After : Squad content = 11
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+Aaargh...
+
+[31m[Test with push limits - with AssaultTerminator][0m
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+* teleports from space *
+Squad content = 0
+Squad content = 1
+Squad content = 2
+Squad content = 3
+Squad content = 4
+Squad content = 5
+Squad content = 6
+Squad content = 7
+Squad content = 8
+Squad content = 9
+After : Squad content = 10
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+I'll be back...
+
+[31m[Test with clone][0m
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+Clone address:        0x1e7eee0
+[31m[call push function][0m
+Last pushed address : 0x1e7eee0
+
+Tactical Marine ready for battle!
+Clone address:        0x1e7ee80
+[31m[call push function][0m
+Last pushed address : 0x1e7ee80
+
+* teleports from space *
+Clone address:        0x1e7efc0
+[31m[call push function][0m
+Last pushed address : 0x1e7efc0
+
+Tactical Marine ready for battle!
+Clone address:        0x1e7efe0
+[31m[call push function][0m
+Last pushed address : 0x1e7efe0
+
+* teleports from space *
+Clone address:        0x1e7f000
+[31m[call push function][0m
+Last pushed address : 0x1e7f000
+
+Tactical Marine ready for battle!
+Clone address:        0x1e7efa0
+[31m[call push function][0m
+Last pushed address : 0x1e7efa0
+
+* teleports from space *
+Clone address:        0x1e7eec0
+[31m[call push function][0m
+Last pushed address : 0x1e7eec0
+
+Tactical Marine ready for battle!
+Clone address:        0x1e7f040
+[31m[call push function][0m
+Last pushed address : 0x1e7f040
+
+* teleports from space *
+Clone address:        0x1e7f060
+[31m[call push function][0m
+Last pushed address : 0x1e7f060
+
+Tactical Marine ready for battle!
+Clone address:        0x1e7f020
+[31m[call push function][0m
+Last pushed address : 0x1e7f020
+
+After : Squad content = 11
+
+I'll be back...
+Aaargh...
+I'll be back...
+Aaargh...
+I'll be back...
+Aaargh...
+I'll be back...
+Aaargh...
+I'll be back...
+Aaargh...
+I'll be back...
+Aaargh...
+
+[31m[Test deep copy][0m
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+I'll be back...
+Aaargh...
+
+[31m[		-- Count][0m
+Count in vlc1 = 4
+Count in vlc2 = 0
+
+[31m[		-- vlc2 = vlc1][0m
+* teleports from space *
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+
+[31m[		-- Count][0m
+Count in vlc1 = 4
+Count in vlc2 = 4
+
+[31m[		-- Add some ISpaceMarines to vlc2][0m
+
+[31m[		-- vlc2 = vlc1][0m
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+
+[31m[		-- Count][0m
+Count in vlc1 = 4
+Count in vlc2 = 7
+
+[31m[		-- vlc1 = vlc2][0m
+I'll be back...
+I'll be back...
+Aaargh...
+I'll be back...
+* teleports from space *
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+* teleports from space *
+Tactical Marine ready for battle!
+* teleports from space *
+
+[31m[		-- Count][0m
+Count in vlc1 = 7
+Count in vlc2 = 7
+
+[31m[		-- Return()][0m
+I'll be back...
+I'll be back...
+Aaargh...
+I'll be back...
+I'll be back...
+Aaargh...
+I'll be back...
+I'll be back...
+I'll be back...
+Aaargh...
+I'll be back...
+I'll be back...
+Aaargh...
+I'll be back...
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex02'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex03'
+make cpp04_03
+make[1]: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex03'
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Cure.cpp  -I ./includes -o objs_cpp04_03/Cure.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Ice.cpp  -I ./includes -o objs_cpp04_03/Ice.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/MateriaSource.cpp  -I ./includes -o objs_cpp04_03/MateriaSource.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/Character.cpp  -I ./includes -o objs_cpp04_03/Character.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/AMateria.cpp  -I ./includes -o objs_cpp04_03/AMateria.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/main.cpp  -I ./includes -o objs_cpp04_03/main.o
+clang++ -std=c++98 -Wall -Wextra -Werror  ./objs_cpp04_03/Cure.o  ./objs_cpp04_03/Ice.o  ./objs_cpp04_03/MateriaSource.o  ./objs_cpp04_03/Character.o  ./objs_cpp04_03/AMateria.o  ./objs_cpp04_03/main.o -I./includes -o cpp04_03
+🎉 [32mcpp04_03 is ready ![0m ✅
+make[1]: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex03'
+./cpp04_03
+[31m----------MAIN FROM SUBJECT-----------[0m
+* shoots an ice bolt at bob *
+* heals bob's wounds *
+[31m----------END MAIN FROM SUBJECT--------[0m
+
+
+[31m[ TEST EQUIP, USE, XP ][0m
+Call use() #1  -> * heals player2's wounds *
+  -- XP of MCure = 10
+Call use() #2  -> * heals player2's wounds *
+  -- XP of MCure = 20
+Call use() #3  -> * heals player2's wounds *
+  -- XP of MCure = 30
+Call use() #4  -> * heals player2's wounds *
+  -- XP of MCure = 40
+Call use() #5  -> * heals player2's wounds *
+  -- XP of MCure = 50
+Call use() #6  -> * heals player2's wounds *
+  -- XP of MCure = 60
+Call use() #7  -> * heals player2's wounds *
+  -- XP of MCure = 70
+Call use() #8  -> * heals player2's wounds *
+  -- XP of MCure = 80
+Call use() #9  -> * heals player2's wounds *
+  -- XP of MCure = 90
+Call use() #10  -> * heals player2's wounds *
+  -- XP of MCure = 100
+XP of MCure should be 100
+
+[31m[ TEST MATERIA SOURCE LEARN ABILITY ][0m
+-- XP of someMateria = 0
+* heals player2's wounds *
+-- XP of someMateria = 10
+
+[31m[ TEST PLAYER DEEP COPY ][0m
+
+[31m	-- [ PLAYER 1 -> ice on player 2 ][0m
+* shoots an ice bolt at player2 *
+
+[31m	-- [ PLAYER 2 -> ice on player 1 ][0m
+
+[31m------- [ player2 = player1 ][0m
+
+[31m	-- [ PLAYER 1 -> ice on player 2 ][0m
+* shoots an ice bolt at player2 *
+
+[31m	-- [ PLAYER 2 -> ice on player 1 ][0m
+* shoots an ice bolt at player1 *
+
+[31m[ TEST MATERIA SOURCE DEEP COPY ][0m
+
+[31m	-- [ SRC 1 -- PLAYER 1 -> ice on player 2 ][0m
+* shoots an ice bolt at player2 *
+
+[31m	-- [ SRC 2 -- PLAYER 1 -> ice on player 2 ][0m
+
+[31m------- [ src2 = src1 ][0m
+
+[31m	-- [ SRC 2 -- PLAYER 1 -> ice on player 2 ][0m
+* shoots an ice bolt at player2 *
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex03'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex04'
+make cpp04_03
+make[1]: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex04'
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/StripMiner.cpp  -I ./includes -o objs_cpp04_03/StripMiner.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/DeepCoreMiner.cpp  -I ./includes -o objs_cpp04_03/DeepCoreMiner.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/AsteroKreog.cpp  -I ./includes -o objs_cpp04_03/AsteroKreog.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/KoalaSteroid.cpp  -I ./includes -o objs_cpp04_03/KoalaSteroid.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/MiningBarge.cpp  -I ./includes -o objs_cpp04_03/MiningBarge.o
+clang++ -std=c++98 -Wall -Wextra -Werror -c ./srcs/main.cpp  -I ./includes -o objs_cpp04_03/main.o
+clang++ -std=c++98 -Wall -Wextra -Werror  ./objs_cpp04_03/StripMiner.o  ./objs_cpp04_03/DeepCoreMiner.o  ./objs_cpp04_03/AsteroKreog.o  ./objs_cpp04_03/KoalaSteroid.o  ./objs_cpp04_03/MiningBarge.o  ./objs_cpp04_03/main.o -I./includes -o cpp04_03
+🎉 [32mcpp04_03 is ready ![0m ✅
+make[1]: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex04'
+./cpp04_03
+
+[31m[ MAIN BVALETTE ][0m
+
+[31m[	-- equip barge with deep: slot 1][0m
+
+[31m[	-- equip barge with strip: slot 2][0m
+
+[31m[	-- equip barge with deep: slot 3][0m
+
+[31m[	-- equip barge with deep: slot 4][0m
+
+[31m[	-- equip barge with strip: ( slot 5/4, should not equip)][0m
+
+[31m[	-- mine on astero][0m
+* mining deep... got Dragonite! *
+* strip mining... got Flavium! *
+* mining deep... got Dragonite! *
+* mining deep... got Dragonite! *
+
+[31m[	-- mine on comet][0m
+* mining deep... got Meium! *
+* strip mining... got Tartarite! *
+* mining deep... got Meium! *
+* mining deep... got Meium! *
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/ex04'
+make: Entering directory '/home/user42/42/42_CPP_PISCINE/cpp04/RESSOURCES'
+make: Leaving directory '/home/user42/42/42_CPP_PISCINE/cpp04/RESSOURCES'

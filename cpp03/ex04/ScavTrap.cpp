@@ -8,26 +8,26 @@
 
 ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name)	{
 
-	this->_level = 1;
-	this->_energyPoints = 50;
-	this->_hitPoints = 100;
-	this->_maxEnergyPoints = 50;
-	this->_maxHitPoints = 100;
-	this->_meleeAttackDamage = 20;
-	this->_rangedAttackDamage = 15;
-	this->_armorDamageReduction = 3;
+	this->setLevel(1);
+	this->setEnergyPoints(50);
+	this->setHitPoints(100);
+	this->setMaxEnergyPoints(50);
+	this->setMaxHitPoints(100);
+	this->setMeleeAttackDamage(20);
+	this->setRangedAttackDamage(15);
+	this->setArmorDamageReduction(3);
 
 	std::cout << "SCAVTRAP - Constructor by default Called" << std::endl;
 
-	std::cout << " _name " << this->_name << std::endl;
-	std::cout << " _level " << this->_level << std::endl;
-	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
-	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
-	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
-	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
-	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
-	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
-	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
+	std::cout << " _name " << this->getName() << std::endl;
+	std::cout << " _level " << this->getLevel() << std::endl;
+	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
+	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
+	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
+	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
+	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
+	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
+	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string const name, const ScavTrap & src )	:	ClapTrap(name)	{
@@ -36,15 +36,15 @@ ScavTrap::ScavTrap( std::string const name, const ScavTrap & src )	:	ClapTrap(na
 
 	*this = src;
 
-	std::cout << " _name " << this->_name << std::endl;
-	std::cout << " _level " << this->_level << std::endl;
-	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
-	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
-	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
-	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
-	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
-	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
-	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
+	std::cout << " _name " << this->getName() << std::endl;
+	std::cout << " _level " << this->getLevel() << std::endl;
+	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
+	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
+	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
+	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
+	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
+	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
+	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
 
 }
 
@@ -66,14 +66,14 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_level = rhs._level;
-		this->_energyPoints = rhs._energyPoints;
-		this->_hitPoints = rhs._hitPoints;
-		this->_maxEnergyPoints = rhs._maxEnergyPoints;
-		this->_maxHitPoints = rhs._maxHitPoints;
-		this->_meleeAttackDamage = rhs._meleeAttackDamage;
-		this->_rangedAttackDamage = rhs._rangedAttackDamage;
-		this->_armorDamageReduction = rhs._armorDamageReduction;
+		this->setLevel(rhs.getLevel());
+		this->setEnergyPoints(rhs.getEnergyPoints());
+		this->setHitPoints(rhs.getHitPoints());
+		this->setMaxEnergyPoints(rhs.getMaxEnergyPoints());
+		this->setMaxHitPoints(rhs.getMaxHitPoints());
+		this->setMeleeAttackDamage(rhs.getMeleeAttackDamage());
+		this->setRangedAttackDamage(rhs.getRangedAttackDamage());
+		this->setArmorDamageReduction(rhs.getArmorDamageReduction());
 	}
 	return *this;
 }
@@ -93,12 +93,12 @@ unsigned int		ScavTrap::rangedAttack(std::string const & target)	{
 
 	if (output > 0)
 	{
-		std::cout << "#Sc4v TR4PP --  " << this->_name << " melee attack on " << target ;
-		std::cout << " causing " << this->_rangedAttackDamage << " poins of damage!" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->getName() << " melee attack on " << target ;
+		std::cout << " causing " << this->getRangedAttackDamage() << " poins of damage!" << std::endl;
 		return (output);
 	}
 	else
-		std::cout << "#Sc4v TR4PP --  " << this->_name << " hit points are too low for a Ranged Attack" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->getName() << " hit points are too low for a Ranged Attack" << std::endl;
 	return (0);
 }
 
@@ -108,12 +108,12 @@ unsigned int		ScavTrap::meleeAttack(std::string const & target)	{
 
 	if (output > 0)
 	{
-		std::cout << "#Sc4v TR4PP --  " << this->_name << " attacks  " << target ;
-		std::cout << " at range, causing " << this->_meleeAttackDamage << " poins of damage!" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->getName() << " attacks  " << target ;
+		std::cout << " at range, causing " << this->getMeleeAttackDamage() << " poins of damage!" << std::endl;
 		return (output);
 	}
 	else
-		std::cout << "#Sc4v TR4PP --  " << this->_name << " hit points are too low for a Melee Attack" << std::endl;
+		std::cout << "#Sc4v TR4PP --  " << this->getName() << " hit points are too low for a Melee Attack" << std::endl;
 	return (0);
 }
 
@@ -129,7 +129,7 @@ unsigned int		ScavTrap::challengeNewcomer(std::string const & target)	{
 
 	gettimeofday(&tv, NULL);
 	srand(tv.tv_usec);
-	std::cout << this->_name << " sends \"" << attackList[rand() % nbOfAttacks] << "\" challenge to " << target << std::endl;
+	std::cout << this->getName() << " sends \"" << attackList[rand() % nbOfAttacks] << "\" challenge to " << target << std::endl;
 	damage = (rand() % 25);
 	return (damage > 10 ? damage : 10);
 }

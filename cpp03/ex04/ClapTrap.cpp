@@ -8,14 +8,14 @@
 
 ClapTrap::ClapTrap( std::string const name ) : _name(name)	{
 
-	this->_level = 0;
-	this->_energyPoints = 0;
-	this->_hitPoints = 0;
-	this->_maxEnergyPoints = 0;
-	this->_maxHitPoints = 0;
-	this->_meleeAttackDamage = 0;
-	this->_rangedAttackDamage = 0;
-	this->_armorDamageReduction = 0;
+	this->setLevel(0);
+	this->setEnergyPoints(0);
+	this->setHitPoints(0);
+	this->setMaxEnergyPoints(0);
+	this->setMaxHitPoints(0);
+	this->setMeleeAttackDamage(0);
+	this->setRangedAttackDamage(0);
+	this->setArmorDamageReduction(0);
 
 	std::cout << "CLAPTRAP - Constructor by default Called" << std::endl;
 
@@ -136,6 +136,26 @@ unsigned int		ClapTrap::meleeAttack(__attribute__((unused))std::string const & t
 std::string const	ClapTrap::getName( void ) const	{
 	return (this->_name);
 }
+
+
+void				ClapTrap::setLevel( unsigned int value )				{	this->_level = value; }
+void				ClapTrap::setEnergyPoints( unsigned int value )			{	this->_energyPoints = value; }
+void				ClapTrap::setHitPoints( unsigned int value )			{	this->_hitPoints = value; }
+void		 		ClapTrap::setMaxEnergyPoints( unsigned int value )		{	this->_maxEnergyPoints = value; }
+void		 		ClapTrap::setMaxHitPoints( unsigned int value )			{	this->_maxHitPoints = value; }
+void		 		ClapTrap::setMeleeAttackDamage( unsigned int value )	{	this->_meleeAttackDamage = value; }
+void		 		ClapTrap::setRangedAttackDamage( unsigned int value )	{	this->_rangedAttackDamage = value; }
+void		 		ClapTrap::setArmorDamageReduction( unsigned int value )	{	this->_armorDamageReduction = value; }
+
+unsigned int		ClapTrap::getLevel( void ) const 				{ return (this->_level);	}
+unsigned int		ClapTrap::getEnergyPoints( void ) const 			{ return (this->_energyPoints);	}
+unsigned int		ClapTrap::getHitPoints( void ) const 				{ return (this->_hitPoints);	}
+unsigned int 		ClapTrap::getMaxEnergyPoints( void ) const 			{ return (this->_maxEnergyPoints);	}
+unsigned int 		ClapTrap::getMaxHitPoints( void ) const 			{ return (this->_maxHitPoints);	}
+unsigned int 		ClapTrap::getMeleeAttackDamage( void ) const 		{ return (this->_meleeAttackDamage);	}
+unsigned int 		ClapTrap::getRangedAttackDamage( void ) const 		{ return (this->_rangedAttackDamage);	}
+unsigned int 		ClapTrap::getArmorDamageReduction( void ) const 	{ return (this->_armorDamageReduction);	}
+
 
 std::ostream &		operator<<( std::ostream & o, ClapTrap const & i)	{
 	o << i.getName().c_str();

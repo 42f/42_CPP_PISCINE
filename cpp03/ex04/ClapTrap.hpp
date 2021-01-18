@@ -24,11 +24,30 @@ class ClapTrap
 
 	protected:
 
+		void				setLevel( unsigned int );
+		void				setEnergyPoints( unsigned int );
+		void				setHitPoints( unsigned int );
+		void		 		setMaxEnergyPoints( unsigned int );
+		void		 		setMaxHitPoints( unsigned int );
+		void		 		setMeleeAttackDamage( unsigned int );
+		void		 		setRangedAttackDamage( unsigned int );
+		void		 		setArmorDamageReduction( unsigned int );
+
+		unsigned int		getLevel( void ) const;
+		unsigned int		getEnergyPoints( void ) const;
+		unsigned int		getHitPoints( void ) const;
+		unsigned int 		getMaxEnergyPoints( void ) const;
+		unsigned int 		getMaxHitPoints( void ) const;
+		unsigned int 		getMeleeAttackDamage( void ) const;
+		unsigned int 		getRangedAttackDamage( void ) const;
+		unsigned int 		getArmorDamageReduction( void ) const;
+
+	private:
+
 		std::string	 const	_name;
 		unsigned int		_level;
 		unsigned int		_energyPoints;
 		unsigned int		_hitPoints;
-
 		unsigned int 		_maxEnergyPoints;
 		unsigned int 		_maxHitPoints;
 		unsigned int 		_meleeAttackDamage;

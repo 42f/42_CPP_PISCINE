@@ -20,30 +20,33 @@ int		main( void )	{
 	{
 		std::cout << RED_COLOR << "[CONSTRUCTION]" << RESET_COLOR << std::endl;
 
-		SuperTrap	super("Mega");
+		SuperTrap	super("supetraaaap");
 
-		std::cout << RESET_COLOR << std::endl;
 		std::cout << RED_COLOR << "[DESTRUCTORS]" << RESET_COLOR << std::endl;
 	}
-	{
-		std::cout << DIM_COLOR << "[CONSTRUCTION]" << std::endl << std::endl;
-		SuperTrap	super("Mega");
-		NinjaTrap	ninja1("Suki");
-		NinjaTrap	ninja2("Eri");
-		FragTrap	frag("Freddy");
-		ScavTrap	scav("Skarl");
-		std::cout << RESET_COLOR << std::endl;
+	// {
+	// 	std::cout << DIM_COLOR << "[CONSTRUCTION]" << std::endl << std::endl;
+	// 	SuperTrap	super("Mega");
+	// 	NinjaTrap	ninja1("Suki");
+	// 	NinjaTrap	ninja2("Eri");
+	// 	FragTrap	frag("Freddy");
+	// 	ScavTrap	scav("Skarl");
+	// 	std::cout << RESET_COLOR << std::endl;
 
-		std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  frag.getName() << "]" << RESET_COLOR << std::endl;
-		super.ninjaShoeBox(frag);
-		std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  scav.getName() << "]" << RESET_COLOR << std::endl;
-		super.ninjaShoeBox(scav);
-		std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  ninja2.getName() << "]" << RESET_COLOR << std::endl;
-		super.ninjaShoeBox(ninja2);
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: melee on " <<  frag.getName() << "]" << RESET_COLOR << std::endl;
+	// 	super.meleeAttack(frag.getName());
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: ranged on " <<  frag.getName() << "]" << RESET_COLOR << std::endl;
+	// 	super.rangedAttack(frag.getName());
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  frag.getName() << "]" << RESET_COLOR << std::endl;
+	// 	super.ninjaShoeBox(frag);
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  scav.getName() << "]" << RESET_COLOR << std::endl;
+	// 	super.ninjaShoeBox(scav);
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: ninja's special on " <<  ninja2.getName() << "]" << RESET_COLOR << std::endl;
+	// 	super.ninjaShoeBox(ninja2);
 
-		std::cout << RED_COLOR << "[SuperTrap ATTACK: FragTrap on Marcel]" << RESET_COLOR << std::endl;
-		super.vaulthunter_dot_exe("Marcel");
-		std::cout << DIM_COLOR << "[DESTRUCTORS]" << RESET_COLOR << std::endl;
-	}
+	// 	std::cout << RED_COLOR << "[SuperTrap ATTACK: FragTrap on Marcel]" << RESET_COLOR << std::endl;
+	// 	super.vaulthunter_dot_exe("Marcel");
+	// 	std::cout << DIM_COLOR << "[DESTRUCTORS]" << RESET_COLOR << std::endl;
+	// }
 	return (0);
 }
