@@ -12,7 +12,7 @@ class BabyPeon : public Peon
 	public:
 
 		BabyPeon( std::string const name );
-		~BabyPeon();
+		virtual ~BabyPeon();
 		BabyPeon &		operator=( BabyPeon const & rhs );
 
 		virtual void	beDead( void ) const;

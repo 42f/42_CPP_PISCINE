@@ -30,14 +30,16 @@ int main( void ) 	{
 		IMiningLaser	*deep = new DeepCoreMiner;
 		IMiningLaser	*strip = new StripMiner;
 
-		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep: slot 1]" << RESET_COLOR << std::endl;
 		barge.equip(deep);
-		std::cout << std::endl << RED_COLOR << "[	-- equip barge with strip]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[	-- equip barge with strip: slot 2]" << RESET_COLOR << std::endl;
 		barge.equip(strip);
-		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep: slot 3]" << RESET_COLOR << std::endl;
 		barge.equip(deep);
-		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[	-- equip barge with deep: slot 4]" << RESET_COLOR << std::endl;
 		barge.equip(deep);
+		std::cout << std::endl << RED_COLOR << "[	-- equip barge with strip: ( slot 5/4, should not equip)]" << RESET_COLOR << std::endl;
+		barge.equip(strip);
 
 		std::cout << std::endl << RED_COLOR << "[	-- mine on astero]" << RESET_COLOR << std::endl;
 		barge.mine(astero);

@@ -56,16 +56,20 @@ endif
 
 HEADER += AWeapon.hpp
 HEADER += PlasmaRifle.hpp
+HEADER += SpaceGun.hpp
 HEADER += PowerFist.hpp
 HEADER += Character.hpp
 HEADER += Enemy.hpp
+HEADER += LonelyStud.hpp
 HEADER += RadScorpion.hpp
 HEADER += SuperMutant.hpp
 SRCS += AWeapon.cpp
+SRCS += SpaceGun.cpp
 SRCS += PlasmaRifle.cpp
 SRCS += PowerFist.cpp
 SRCS += Character.cpp
 SRCS += Enemy.cpp
+SRCS += LonelyStud.cpp
 SRCS += RadScorpion.cpp
 SRCS += SuperMutant.cpp
 

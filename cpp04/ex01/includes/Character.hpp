@@ -23,7 +23,7 @@ class Character
 		~Character();
 
 		static unsigned int	const	APMax = 40;
-		static unsigned int	const	APCost = 10;
+		static unsigned int	const	APRecover = 10;
 
 	private:
 		Character &		operator=( Character const & rhs );

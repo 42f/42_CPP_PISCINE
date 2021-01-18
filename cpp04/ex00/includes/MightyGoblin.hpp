@@ -11,7 +11,7 @@ class MightyGoblin : public Victim
 	public:
 
 		MightyGoblin( std::string const name );
-		~MightyGoblin();
+		virtual ~MightyGoblin();
 		MightyGoblin &		operator=( MightyGoblin const & rhs );
 
 		std::string		introduce( void ) const;

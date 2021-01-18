@@ -61,7 +61,6 @@ int		main( void )	{
 	}
 	std::cout << RED_COLOR << "----------PART 3 : adds BabyPeon from Peon (from Victim)-----------" << RESET_COLOR << std::endl;
 	{
-	// Sorcerer robert("Robert", "the Magnificent");
 
 	BabyPeon	bp("babyPeon");
 

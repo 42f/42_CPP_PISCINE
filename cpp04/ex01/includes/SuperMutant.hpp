@@ -11,7 +11,7 @@ class SuperMutant : public Enemy
 	public:
 
 		SuperMutant();
-		~SuperMutant();
+		virtual ~SuperMutant();
 		virtual void		takeDamage(int amount);
 
 

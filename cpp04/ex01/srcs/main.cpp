@@ -3,9 +3,11 @@
 #include "AWeapon.hpp"
 #include "Enemy.hpp"
 
+#include "LonelyStud.hpp"
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
 
+#include "SpaceGun.hpp"
 #include "PowerFist.hpp"
 #include "PlasmaRifle.hpp"
 
@@ -60,7 +62,7 @@ int main() {
 
 	{
 		std::cout << RED_COLOR << "[WEAPON CTOR]" << RESET_COLOR << std::endl;
-		PlasmaRifle		wa;
+		SpaceGun		wa;
 
 		std::cout << wa.getName() << " - " << wa.getAPCost() << " - " << wa.getDamage() << std::endl;
 		wa.attack();
@@ -68,7 +70,7 @@ int main() {
 		std::cout << RED_COLOR << "[CHARACTER CTOR]" << RESET_COLOR << std::endl;
 		Character		player("Player1");
 		std::cout << RED_COLOR << "[ENEMY CTOR]" << RESET_COLOR << std::endl;
-		Enemy*			badGuy = new RadScorpion();
+		Enemy*			badGuy = new LonelyStud();
 
 		std::cout << RED_COLOR << "[CHARACTER << OVERLOAD]" << RESET_COLOR << std::endl;
 		std::cout << player;

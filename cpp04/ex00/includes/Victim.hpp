@@ -12,7 +12,7 @@ class Victim
 
 		Victim( std::string const name );
 		Victim &		operator=( Victim const & rhs );
-		~Victim();
+		virtual ~Victim();
 
 		void					sayHello( void ) const;
 		virtual std::string		introduce( void ) const;

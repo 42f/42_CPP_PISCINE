@@ -11,7 +11,7 @@ class RadScorpion : public Enemy
 	public:
 
 		RadScorpion();
-		~RadScorpion();
+		virtual ~RadScorpion();
 
 	private:
 		RadScorpion &		operator=( RadScorpion const & rhs );
