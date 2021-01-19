@@ -1,9 +1,10 @@
-# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+
 /*
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : AForm("PresidentialPardonForm", 25, 5), _target(target)	{
+RobotomyRequestForm::RobotomyRequestForm( std::string const &target ) : AForm("RobotomyRequestForm", 25, 5), _target(target)	{
 }
 
 
@@ -13,7 +14,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : AF
 */
 
 /*****
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )	{
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )	{
 
 }
 *****/
@@ -24,7 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DESTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-PresidentialPardonForm::~PresidentialPardonForm()	{
+RobotomyRequestForm::~RobotomyRequestForm()	{
 
 }
 
@@ -35,7 +36,7 @@ PresidentialPardonForm::~PresidentialPardonForm()	{
 */
 
 /*****
-PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )	{
+RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )	{
 
 	if ( this != &rhs )
 	{
@@ -46,7 +47,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 *****/
 
 /*****
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )	{
+std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )	{
 
 	o << "Value = " << i.getValue();
 	return o;
@@ -58,7 +59,7 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-void	PresidentialPardonForm::execute( Bureaucrat const & executor) const	{
+void	RobotomyRequestForm::execute( Bureaucrat const & executor) const	{
 
 	try
 	{
@@ -75,10 +76,8 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor) const	{
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ACCESSOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-void	PresidentialPardonForm::action( void ) const	{
-
-	std::cout << "DOING ACTION PresidentialPardonForm" << std::endl;
-
+void	RobotomyRequestForm::action( void ) const	{
+	std::cout << "DOING ACTION RobotomyRequestForm" << std::endl;
 }
 
 

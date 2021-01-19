@@ -1,0 +1,45 @@
+[31m----------MAIN FROM SUBJECT-----------[0m
+me has 40 AP and is unarmed
+
+* click click click *
+me has 40 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Power Fist
+* pschhh... SBAM! *
+me has 32 AP and wields a Power Fist
+me has 32 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Plasma Rifle
+* piouuu piouuu piouuu *
+me has 27 AP and wields a Plasma Rifle
+me attacks RadScorpion with a Plasma Rifle
+* piouuu piouuu piouuu *
+* SPROTCH *
+me has 22 AP and wields a Plasma Rifle
+[31m----------END MAIN FROM SUBJECT--------[0m
+
+[31m[WEAPON CTOR][0m
+SpaceGun - 10 - 42
+* BAM BAM! -42 in ya face!  *
+[31m[CHARACTER CTOR][0m
+[31m[ENEMY CTOR][0m
+* Tadaaam *
+[31m[CHARACTER << OVERLOAD][0m
+Player1 has 40 AP and is unarmed
+[31m[ENEMY ATTACK WITH NO WEAPON(null)][0m
+[31m[ENEMY EQUIP FUNCTION CALL][0m
+[31m[CHARACTER << OVERLOAD][0m
+Player1 has 40 AP and wields a SpaceGun
+[31m[LOOP OF 10 ATTACKS FROM CHARACTER ON ENEMY][0m
+LonelyStud has 120 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+LonelyStud has 78 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+LonelyStud has 36 HP points.
+
+Player1 attacks LonelyStud with a SpaceGun
+* BAM BAM! -42 in ya face!  *
+* Lonely Stud was absorbed by a BlackHole *
+[31m[ENEMY DIED ONCE IT HAS REACHED 0 HP POINTS][0m

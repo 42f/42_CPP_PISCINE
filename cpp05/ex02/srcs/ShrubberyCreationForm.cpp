@@ -1,9 +1,12 @@
-# include "PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include <sstream>
+# include <fstream>
+
 /*
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : AForm("PresidentialPardonForm", 25, 5), _target(target)	{
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const &target ) : AForm("ShrubberyCreationForm", 25, 5), _target(target)	{
 }
 
 
@@ -13,7 +16,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const &target ) : AF
 */
 
 /*****
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )	{
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src )	{
 
 }
 *****/
@@ -24,7 +27,7 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DESTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-PresidentialPardonForm::~PresidentialPardonForm()	{
+ShrubberyCreationForm::~ShrubberyCreationForm()	{
 
 }
 
@@ -35,7 +38,7 @@ PresidentialPardonForm::~PresidentialPardonForm()	{
 */
 
 /*****
-PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )	{
+ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )	{
 
 	if ( this != &rhs )
 	{
@@ -46,7 +49,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 *****/
 
 /*****
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )	{
+std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )	{
 
 	o << "Value = " << i.getValue();
 	return o;
@@ -58,7 +61,7 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-void	PresidentialPardonForm::execute( Bureaucrat const & executor) const	{
+void	ShrubberyCreationForm::execute( Bureaucrat const & executor) const	{
 
 	try
 	{
@@ -75,11 +78,23 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor) const	{
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ACCESSOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-void	PresidentialPardonForm::action( void ) const	{
+void	ShrubberyCreationForm::action( void ) const	{
 
-	std::cout << "DOING ACTION PresidentialPardonForm" << std::endl;
+	std::cout << "DOING ACTION ShrubberyCreationForm" << std::endl;
 
-}
+	std::stringstream	fileName;
+	size_t const		max = 24;
+
+	fileName << this->_target << "_shrubbery";
+	try
+	{
+		std::ofstream	ofs(fileName.str().c_str() , std::ofstream::app);
+		for
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << "Could not open the output file: " << e.what() << std::endl;
+	}
 
 
 /*

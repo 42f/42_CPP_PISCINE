@@ -13,7 +13,6 @@
 int		main( void ) 	{
 
 	Bureaucrat					bob("bob", 1);
-
 	PresidentialPardonForm		f1("home");
 
 	bob.executeForm(f1);
