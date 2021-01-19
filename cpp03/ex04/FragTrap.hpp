@@ -21,6 +21,16 @@ class FragTrap : virtual public ClapTrap
 
 		unsigned int	vaulthunter_dot_exe(std::string const & target);
 
+	protected:
+		unsigned int		_level;
+		unsigned int		_energyPoints;
+		unsigned int		_hitPoints;
+		unsigned int 		_maxEnergyPoints;
+		unsigned int 		_maxHitPoints;
+		unsigned int 		_meleeAttackDamage;
+		unsigned int 		_rangedAttackDamage;
+		unsigned int 		_armorDamageReduction;
+
 };
 
 #endif /* ******************************************************** FRAGTRAP_H */

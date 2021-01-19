@@ -6,17 +6,16 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap( std::string const name ) : _name(name)	{
-
-	this->setLevel(0);
-	this->setEnergyPoints(0);
-	this->setHitPoints(0);
-	this->setMaxEnergyPoints(0);
-	this->setMaxHitPoints(0);
-	this->setMeleeAttackDamage(0);
-	this->setRangedAttackDamage(0);
-	this->setArmorDamageReduction(0);
-
+ClapTrap::ClapTrap( std::string const name ) : _name(name),
+ 												_level(0),
+ 												_energyPoints(0),
+ 												_hitPoints(0),
+ 												_maxEnergyPoints(0),
+ 												_maxHitPoints(0),
+ 												_meleeAttackDamage(0),
+ 												_rangedAttackDamage(0),
+ 												_armorDamageReduction(0)
+{
 	std::cout << "CLAPTRAP - Constructor by default Called" << std::endl;
 
 	std::cout << " _name " << this->_name << std::endl;

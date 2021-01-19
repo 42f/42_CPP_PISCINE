@@ -6,35 +6,27 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap( std::string const name ) : ClapTrap(name)	{
-
-	this->setLevel(100000000);
-	this->setEnergyPoints(100000000);
-	this->setHitPoints(100000000);
-	this->setMaxEnergyPoints(100000000);
-	this->setMaxHitPoints(100000000);
-	this->setMeleeAttackDamage(100000000);
-	this->setRangedAttackDamage(100000000);
-	this->setArmorDamageReduction(100000000);
-	// FragTrap::_energyPoints = 100;
-	// FragTrap::_hitPoints = 10;
-	// FragTrap::_maxEnergyPoints = 100;
-	// FragTrap::_maxHitPoints = 100;
-	// FragTrap::_meleeAttackDamage = 30;
-	// FragTrap::_rangedAttackDamage = 20;
-	// FragTrap::_armorDamageReduction = 5;
-
+FragTrap::FragTrap( std::string const name ) : ClapTrap(name),
+ 												_level(1),
+ 												_energyPoints(100),
+ 												_hitPoints(10),
+ 												_maxEnergyPoints(100),
+ 												_maxHitPoints(10),
+ 												_meleeAttackDamage(30),
+ 												_rangedAttackDamage(20),
+ 												_armorDamageReduction(5)
+{
 	std::cout << "FRAGTRAP - Constructor by default Called" << std::endl;
 
-	std::cout << " _name " << this->getName() << std::endl;
-	std::cout << " _level " << this->getLevel() << std::endl;
-	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
-	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
-	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
-	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
-	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
-	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
-	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
 FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	ClapTrap(name)	{
@@ -43,15 +35,15 @@ FragTrap::FragTrap( std::string const name, const FragTrap & src )	:	ClapTrap(na
 
 	*this = src;
 
-	std::cout << " _name " << this->getName() << std::endl;
-	std::cout << " _level " << this->getLevel() << std::endl;
-	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
-	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
-	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
-	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
-	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
-	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
-	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
 /*

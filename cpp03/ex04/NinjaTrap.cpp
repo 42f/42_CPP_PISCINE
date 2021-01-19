@@ -6,37 +6,28 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-NinjaTrap::NinjaTrap( std::string const name ) : ClapTrap(name)	{
-
-	this->setLevel(4242);
-	this->setEnergyPoints(4242);
-	this->setHitPoints(4242);
-	this->setMaxEnergyPoints(4242);
-	this->setMaxHitPoints(4242);
-	this->setMeleeAttackDamage(4242);
-	this->setRangedAttackDamage(4242);
-	this->setArmorDamageReduction(4242);
-
-	// this->_level = 1;
-	// this->_energyPoints = 120;
-	// this->_hitPoints = 60;
-	// this->_maxEnergyPoints = 120;
-	// this->_maxHitPoints = 60;
-	// this->_meleeAttackDamage = 60;
-	// this->_rangedAttackDamage = 5;
-	// this->_armorDamageReduction = 0;
+NinjaTrap::NinjaTrap( std::string const name ) : ClapTrap(name),
+ 												_level(1),
+ 												_energyPoints(120),
+ 												_hitPoints(60),
+ 												_maxEnergyPoints(120),
+ 												_maxHitPoints(60),
+ 												_meleeAttackDamage(60),
+ 												_rangedAttackDamage(5),
+ 												_armorDamageReduction(0)
+{
 
 	std::cout << "NinjaTrap - Constructor by default Called" << std::endl;
 
-	std::cout << " _name " << this->getName() << std::endl;
-	std::cout << " _level " << this->getLevel() << std::endl;
-	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
-	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
-	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
-	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
-	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
-	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
-	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 }
 
 NinjaTrap::NinjaTrap( std::string const name, const NinjaTrap & src )	:	ClapTrap(name)	{
@@ -45,15 +36,15 @@ NinjaTrap::NinjaTrap( std::string const name, const NinjaTrap & src )	:	ClapTrap
 
 	*this = src;
 
-	std::cout << " _name " << this->getName() << std::endl;
-	std::cout << " _level " << this->getLevel() << std::endl;
-	std::cout << " _energyPoints " << this->getEnergyPoints() << std::endl;
-	std::cout << " _hitPoints " << this->getHitPoints() << std::endl;
-	std::cout << " _maxEnergyPoints " << this->getMaxEnergyPoints() << std::endl;
-	std::cout << " _maxHitPoints " << this->getMaxHitPoints() << std::endl;
-	std::cout << " _meleeAttackDamage " << this->getMeleeAttackDamage() << std::endl;
-	std::cout << " _rangedAttackDamage " << this->getRangedAttackDamage() << std::endl;
-	std::cout << " _armorDamageReduction " << this->getArmorDamageReduction() << std::endl;
+	std::cout << " _name " << this->_name << std::endl;
+	std::cout << " _level " << this->_level << std::endl;
+	std::cout << " _energyPoints " << this->_energyPoints << std::endl;
+	std::cout << " _hitPoints " << this->_hitPoints << std::endl;
+	std::cout << " _maxEnergyPoints " << this->_maxEnergyPoints << std::endl;
+	std::cout << " _maxHitPoints " << this->_maxHitPoints << std::endl;
+	std::cout << " _meleeAttackDamage " << this->_meleeAttackDamage << std::endl;
+	std::cout << " _rangedAttackDamage " << this->_rangedAttackDamage << std::endl;
+	std::cout << " _armorDamageReduction " << this->_armorDamageReduction << std::endl;
 
 }
 

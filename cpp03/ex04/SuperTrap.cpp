@@ -8,24 +8,14 @@
 
 SuperTrap::SuperTrap( std::string const name ) : ClapTrap(name), FragTrap(name), NinjaTrap(name) 	{
 
-	// this->_level = 1;
-	// this->_energyPoints = 42;
-	// this->_hitPoints = 42;
-	// this->_maxEnergyPoints = 42;
-	// this->_maxHitPoints = 42;
-	// this->_meleeAttackDamage = 42;
-	// this->_rangedAttackDamage = 42;
-	// this->_armorDamageReduction = 42;
-
-	ClapTrap::setEnergyPoints(NinjaTrap::getEnergyPoints());
-	ClapTrap::setHitPoints(FragTrap::getHitPoints());
-	ClapTrap::setMaxEnergyPoints(NinjaTrap::getMaxEnergyPoints());
-	ClapTrap::setMaxHitPoints(FragTrap::getMaxHitPoints());
-	ClapTrap::setMeleeAttackDamage(NinjaTrap::getMeleeAttackDamage());
-	ClapTrap::setRangedAttackDamage(FragTrap::getRangedAttackDamage());
-	ClapTrap::setArmorDamageReduction(FragTrap::getArmorDamageReduction());
-
-
+	this->setLevel(1);
+	this->setEnergyPoints(NinjaTrap::_energyPoints);
+	this->setHitPoints(FragTrap::_hitPoints);
+	this->setMaxEnergyPoints(NinjaTrap::_maxEnergyPoints);
+	this->setMaxHitPoints(FragTrap::_maxHitPoints);
+	this->setMeleeAttackDamage(NinjaTrap::_meleeAttackDamage);
+	this->setRangedAttackDamage(FragTrap::_rangedAttackDamage);
+	this->setArmorDamageReduction(FragTrap::_armorDamageReduction);
 
 	std::cout << "SuperTrap - Constructor by default Called -----------------------------" << std::endl;
 
@@ -62,6 +52,18 @@ SuperTrap::SuperTrap( std::string const name ) : ClapTrap(name), FragTrap(name),
 	std::cout << " _meleeAttackDamage " << FragTrap::getMeleeAttackDamage() << std::endl;
 	std::cout << " _rangedAttackDamage " << FragTrap::getRangedAttackDamage() << std::endl;
 	std::cout << " _armorDamageReduction " << FragTrap::getArmorDamageReduction() << std::endl;
+
+	std::cout << "*************************-- base direct" << std::endl;
+
+	std::cout << " _name " << ClapTrap::getName() << std::endl;
+	std::cout << " _level " << ClapTrap::getLevel() << std::endl;
+	std::cout << " _energyPoints " << ClapTrap::getEnergyPoints() << std::endl;
+	std::cout << " _hitPoints " << ClapTrap::getHitPoints() << std::endl;
+	std::cout << " _maxEnergyPoints " << ClapTrap::getMaxEnergyPoints() << std::endl;
+	std::cout << " _maxHitPoints " << ClapTrap::getMaxHitPoints() << std::endl;
+	std::cout << " _meleeAttackDamage " << ClapTrap::getMeleeAttackDamage() << std::endl;
+	std::cout << " _rangedAttackDamage " << ClapTrap::getRangedAttackDamage() << std::endl;
+	std::cout << " _armorDamageReduction " << ClapTrap::getArmorDamageReduction() << std::endl;
 }
 
 SuperTrap::SuperTrap( std::string const name, const SuperTrap & src )	:	ClapTrap(name), FragTrap(name), NinjaTrap(name) 	{

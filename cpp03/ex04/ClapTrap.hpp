@@ -42,9 +42,9 @@ class ClapTrap
 		unsigned int 		getRangedAttackDamage( void ) const;
 		unsigned int 		getArmorDamageReduction( void ) const;
 
-	private:
-
 		std::string	 const	_name;
+
+	private:
 		unsigned int		_level;
 		unsigned int		_energyPoints;
 		unsigned int		_hitPoints;

@@ -25,6 +25,16 @@ class NinjaTrap : virtual public ClapTrap
 		void			ninjaShoeBox(FragTrap &clapTrap);
 		void			ninjaShoeBox(ScavTrap &clapTrap);
 		void			ninjaShoeBox(NinjaTrap &clapTrap);
+
+	protected:
+		unsigned int		_level;
+		unsigned int		_energyPoints;
+		unsigned int		_hitPoints;
+		unsigned int 		_maxEnergyPoints;
+		unsigned int 		_maxHitPoints;
+		unsigned int 		_meleeAttackDamage;
+		unsigned int 		_rangedAttackDamage;
+		unsigned int 		_armorDamageReduction;
 };
 
 #endif /* ******************************************************** NinjaTrap_H */

@@ -20,7 +20,6 @@ class SuperTrap : public virtual ClapTrap, public FragTrap, public NinjaTrap
 
 		unsigned int	rangedAttack(std::string const & target);
 		unsigned int	meleeAttack(std::string const & target);
-
 };
 
 #endif /* ******************************************************** SuperTrap_H */
