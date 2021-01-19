@@ -77,7 +77,7 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )	{
 */
 
 std::string		Bureaucrat::getName( void ) const 	{ return (this->_name); };
-unsigned int	Bureaucrat::getGrade( void ) const 	{ return (this->_grade); };
+int				Bureaucrat::getGrade( void ) const 	{ return (this->_grade); };
 
 void			Bureaucrat::incrementGrade( void )	{
 
@@ -96,6 +96,23 @@ void			Bureaucrat::decrementGrade( void )	{
 
 };
 
+void			Bureaucrat::signForm( Form & form )	{
+
+	try
+	{
+		form.beSigned(*this);
+		std::cerr << this->getName() << " signs " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " cannot sign " << form.getName() << " because : \"" << e.what() << "\""<< std::endl;
+	}
+
+}
+
+/*
+** --------------------------------- NESTED CLASS-------------------------------
+*/
 
 const char* 	Bureaucrat::GradeTooHighException::what( void ) const throw()	{ return ("Grade is too High."); }
 const char* 	Bureaucrat::GradeTooLowException::what( void ) const throw()	{ return ("Grade is too Low."); }

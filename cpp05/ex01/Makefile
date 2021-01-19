@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp05_00
+NAME := cpp05_01
 INCLUDES = ./includes
 SRCS_DIR = ./srcs
 CC = clang++
@@ -55,9 +55,11 @@ ifeq ($(debug_mode), 1)
 endif
 
 HEADER += ./Bureaucrat.hpp
+HEADER += ./Form.hpp
 
 SRCS += ./main.cpp
 SRCS += ./Bureaucrat.cpp
+SRCS += ./Form.cpp
 
 vpath %.cpp ./srcs
 vpath %.hpp ./includes

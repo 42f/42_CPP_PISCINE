@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp05_00
+NAME := cpp05_02
 INCLUDES = ./includes
 SRCS_DIR = ./srcs
 CC = clang++
@@ -54,10 +54,14 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
+HEADER += ./PresidentialPardonForm.hpp
 HEADER += ./Bureaucrat.hpp
+HEADER += ./AForm.hpp
 
 SRCS += ./main.cpp
+SRCS += ./PresidentialPardonForm.cpp
 SRCS += ./Bureaucrat.cpp
+SRCS += ./AForm.cpp
 
 vpath %.cpp ./srcs
 vpath %.hpp ./includes
@@ -89,7 +93,8 @@ re : fclean
 	@$(MAKE)
 
 f : all
-	./$(NAME)
+	@echo "██████DONE███████\n\n"
+	@./$(NAME)
 
 cmp: all
 	./$(NAME) > output.log

@@ -27,7 +27,7 @@ int main() {
 	{
 		Character* me = new Character("me");
 
-		std::cout << *me;
+		std::cout << *me << std::endl;
 
 		Enemy* b = new RadScorpion();
 
