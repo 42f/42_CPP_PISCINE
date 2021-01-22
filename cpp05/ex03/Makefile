@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp05_00
+NAME := cpp05_03
 INCLUDES = ./includes
 SRCS_DIR = ./srcs
 CC = clang++
@@ -54,10 +54,20 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
+HEADER += ./RobotomyRequestForm.hpp
+HEADER += ./ShrubberyCreationForm.hpp
+HEADER += ./PresidentialPardonForm.hpp
 HEADER += ./Bureaucrat.hpp
+HEADER += ./Intern.hpp
+HEADER += ./AForm.hpp
 
 SRCS += ./main.cpp
+SRCS += ./RobotomyRequestForm.cpp
+SRCS += ./ShrubberyCreationForm.cpp
+SRCS += ./PresidentialPardonForm.cpp
 SRCS += ./Bureaucrat.cpp
+SRCS += ./Intern.cpp
+SRCS += ./AForm.cpp
 
 vpath %.cpp ./srcs
 vpath %.hpp ./includes
@@ -83,13 +93,14 @@ clean :
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) home_shrubbery
 
 re : fclean
 	@$(MAKE)
 
 f : all
-	./$(NAME)
+	@echo "██████DONE███████\n\n"
+	@./$(NAME)
 
 cmp: all
 	./$(NAME) > output.log

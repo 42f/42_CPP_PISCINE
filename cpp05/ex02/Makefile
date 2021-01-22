@@ -54,11 +54,15 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
+HEADER += ./RobotomyRequestForm.hpp
+HEADER += ./ShrubberyCreationForm.hpp
 HEADER += ./PresidentialPardonForm.hpp
 HEADER += ./Bureaucrat.hpp
 HEADER += ./AForm.hpp
 
 SRCS += ./main.cpp
+SRCS += ./RobotomyRequestForm.cpp
+SRCS += ./ShrubberyCreationForm.cpp
 SRCS += ./PresidentialPardonForm.cpp
 SRCS += ./Bureaucrat.cpp
 SRCS += ./AForm.cpp
@@ -87,7 +91,7 @@ clean :
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME) output.log
+	$(RM) $(NAME) home_shrubbery
 
 re : fclean
 	@$(MAKE)

@@ -85,7 +85,7 @@ clean :
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME) output.log
+	$(RM) $(NAME)
 
 re : fclean
 	@$(MAKE)
