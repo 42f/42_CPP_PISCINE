@@ -4,7 +4,7 @@
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-RobotomyRequestForm::RobotomyRequestForm( std::string const &target ) : AForm("RobotomyRequestForm", 25, 5), _target(target)	{
+RobotomyRequestForm::RobotomyRequestForm( std::string const &target ) : AForm("RobotomyRequestForm", 25, 5), _target(target), _failureSwitch(false)	{
 }
 
 

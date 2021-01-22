@@ -13,7 +13,7 @@ class AForm
 	public:
 
 		AForm( std::string const name, int signGrade, int execGrade );
-		~AForm( void );
+		virtual ~AForm( void );
 
 		std::string			getName( void ) const;
 		int					getSignGrade( void ) const;

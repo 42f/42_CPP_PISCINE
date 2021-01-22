@@ -30,11 +30,17 @@ int		main( void ) 	{
 		bob.executeForm(*rrf);
 		bob.executeForm(*rrf);
 		jim.executeForm(*rrf);
+
+		delete rrf;
+
 		std::cout << RED_COLOR << std::endl << "[Test: presidential pardon]" << RESET_COLOR << std::endl;
 		rrf = someRandomIntern.makeForm("presidential pardon", "Trump");
 		bob.signForm(*rrf);
 		bob.executeForm(*rrf);
 		jim.executeForm(*rrf);
+
+		delete rrf;
+
 		std::cout << RED_COLOR << std::endl << "[Test: shrubbery creation]" << RESET_COLOR << std::endl;
 		rrf = someRandomIntern.makeForm("shrubbery creation", "home");
 		bob.signForm(*rrf);
@@ -42,6 +48,12 @@ int		main( void ) 	{
 		std::cout << RED_COLOR << "[ --> Cat output file]" << RESET_COLOR << std::endl;
 		system("cat ./home_shrubbery");
 		jim.executeForm(*rrf);
+		delete rrf;
+
+		std::cout << RED_COLOR << std::endl << "[Test: non existant form name]" << RESET_COLOR << std::endl;
+		rrf = someRandomIntern.makeForm("-------------------", "home");
+		if (rrf != NULL)
+			std::cout << "Error, rrf should be null, is " << rrf << std::endl;
 	}
 
 	return 0;
