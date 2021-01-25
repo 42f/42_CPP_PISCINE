@@ -88,7 +88,7 @@ clean :
 	$(RM) -R $(OBJ_DIR)
 
 fclean : clean
-	$(RM) $(NAME) home_shrubbery
+	$(RM) $(NAME)
 
 re : fclean
 	@$(MAKE)

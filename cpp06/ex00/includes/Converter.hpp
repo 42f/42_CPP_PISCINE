@@ -12,4 +12,8 @@ typedef struct		t_values	{
 	double	dVal;
 }					s_values;
 
+#ifndef DEBUG_MODE
+# define DEBUG_MODE 0
+#endif
+
 #endif /* *****BVALETTE****** CONVERTER_H */

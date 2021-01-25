@@ -78,17 +78,25 @@ bool  floatHandler( std::string  &arg )	{
 	char				dump;
 	t_values			val;
 	std::stringstream	sarg(arg);
-	std::cout << "HANDLER : float" << std::endl;
+
+	if (DEBUG_MODE == true)
+		std::cout << "HANDLER : float" << std::endl;
 	sarg >> val.fVal;
-	if (sarg.fail() == true)
-		std::cout << "Error: This result it undefined: the value passed as parameter has overflown!" << std::endl;
+	if (val.fVal < std::numeric_limits<int>::min() || val.fVal > std::numeric_limits<int>::max())
+	{
+		std::cout << "Error: This result is undefined: the value passed as parameter has overflown!" << std::endl;
+		return (false);
+	}
 	sarg >> dump;
 	sarg >> dump;
 	if (sarg.eof() == false)
 		return (false);
+	if (val.fVal < std::numeric_limits<char>::min() || val.fVal > std::numeric_limits<char>::max())
+		val.cVal = 0;
+	else
+		val.cVal = static_cast<char>(val.fVal);
 	val.dVal = static_cast<double>(val.fVal);
 	val.iVal = static_cast<int>(val.fVal);
-	val.cVal = static_cast<char>(val.fVal);
 	printValues(val);
 	return (true);
 }
@@ -98,17 +106,25 @@ bool  doubleHandler( std::string  &arg )	{
 	char				dump;
 	t_values			val;
 	std::stringstream	sarg(arg);
-	std::cout << "HANDLER : double" << std::endl;
+
+	if (DEBUG_MODE == true)
+		std::cout << "HANDLER : double" << std::endl;
 	sarg >> val.dVal;
-	if (sarg.fail() == true)
-		std::cout << "Error: This result it undefined: the value passed as parameter has overflown!" << std::endl;
+	if (val.dVal < std::numeric_limits<float>::min() || val.dVal > std::numeric_limits<float>::max())
+	{
+		std::cout << "Error: This result is undefined: the value passed as parameter has overflown!" << std::endl;
+		return (false);
+	}
 	sarg >> dump;
 	sarg >> dump;
 	if (sarg.eof() == false)
 		return (false);
+	if (val.dVal < std::numeric_limits<char>::min() || val.dVal > std::numeric_limits<char>::max())
+		val.cVal = 0;
+	else
+		val.cVal = static_cast<char>(val.dVal);
 	val.fVal = static_cast<float>(val.dVal);
 	val.iVal = static_cast<int>(val.dVal);
-	val.cVal = static_cast<char>(val.dVal);
 	printValues(val);
 	return (true);
 }
@@ -118,17 +134,26 @@ bool  intHandler( std::string  &arg )	{
 	char				dump;
 	t_values			val;
 	std::stringstream	sarg(arg);
-	std::cout << "HANDLER : int" << std::endl;
+
+	if (DEBUG_MODE == true)
+		std::cout << "HANDLER : int" << std::endl;
 	sarg >> val.iVal;
 	if (sarg.fail() == true)
-		std::cout << "Error: This result it undefined: the value passed as parameter has overflown!" << std::endl;
+	{
+		std::cout << "Error: This result is undefined: the value passed as parameter has overflown!" << std::endl;
+		return (false);
+	}
 	sarg >> dump;
 	sarg >> dump;
 	if (sarg.eof() == false)
 		return (false);
+	if (val.iVal < std::numeric_limits<char>::min() || val.iVal > std::numeric_limits<char>::max())
+		val.cVal = 0;
+	else
+		val.cVal = static_cast<char>(val.iVal);
+
 	val.fVal = static_cast<float>(val.iVal);
 	val.dVal = static_cast<double>(val.iVal);
-	val.cVal = static_cast<char>(val.iVal);
 	printValues(val);
 	return (true);
 }
@@ -138,12 +163,17 @@ bool  charHandler( std::string  &arg )	{
 	char				dump;
 	t_values			val;
 	std::stringstream	sarg(arg);
-	std::cout << "HANDLER : char" << std::endl;
+
+	if (DEBUG_MODE == true)
+		std::cout << "HANDLER : char" << std::endl;
 	if (arg.length() > 1)
 		return (false);
 	sarg >> val.cVal;
 	if (sarg.fail() == true)
-		std::cout << "Error: This result it undefined: the value passed as parameter has overflown!" << std::endl;
+	{
+		std::cout << "Error: This result is undefined: the value passed as parameter has overflown!" << std::endl;
+		return (false);
+	}
 	sarg >> dump;
 	sarg >> dump;
 	if (sarg.eof() == false)
@@ -157,11 +187,11 @@ bool  charHandler( std::string  &arg )	{
 
 bool	regularDispatcher( std::string &arg )	{
 
-	if ( arg.at(arg.length() - 1) == 'f' && arg.find_first_of("0123456789") != std::string::npos)
+	if (arg.at(arg.length() - 1) == 'f' && arg.find_first_of("0123456789") != std::string::npos)
 		return(floatHandler(arg));
-	else if (arg.find('.') != std::string::npos)
+	else if (arg.find('.') != std::string::npos && (arg.find("-") != std::string::npos || arg.find_first_not_of("0123456789") != std::string::npos))
 		return(doubleHandler(arg));
-	else if (arg.find_first_not_of("0123456789") != std::string::npos)
+	else if (arg.find_first_not_of("-0123456789") != std::string::npos)
 		return(charHandler(arg));
 	else
 		return(intHandler(arg));
