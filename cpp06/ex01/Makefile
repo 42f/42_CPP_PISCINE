@@ -70,7 +70,6 @@ OBJS = $(patsubst %.cpp, $(OBJ_DIR)%.o, $(SRCS))
 all :
 	$(MAKE) $(NAME)
 	@echo
-	@echo
 
 $(OBJS): $(OBJ_DIR)%.o: %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $<  -I $(INCLUDES) -o $@
@@ -94,7 +93,6 @@ re : fclean
 	@$(MAKE)
 
 f : all
-	@echo
 	@echo
 	@./$(NAME)
 

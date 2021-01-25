@@ -16,7 +16,7 @@ void * serialize(void)	{
 	}
 	memset(output, 0, sizeof(output));
 
-	srand(time(NULL));
+	srand(reinterpret_cast<long>(output));
 	for (size_t i = 0; i < char1End; i++)
 		reinterpret_cast<char *>(output)[i] = (rand() % 2 == 0) ? rand() % 26 + 'a' : rand() % 10 + '0';
 
