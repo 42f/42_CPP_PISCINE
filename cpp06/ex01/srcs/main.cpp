@@ -5,25 +5,63 @@
 
 void * serialize(void)	{
 
-	size_t outputSize = sizeof(char) * 8 + sizeof(int) * 1 + sizeof(char) * 8;
-	void * output = new (outputSize);
+	void * output;
 
-	srand = static_cast<unsigned int>(&output);
-	for (int i = 0; i < 8; i++)
-		*(output + (sizeof(char) * i)) = static_cast<char>((rand() % 26) + 'a');
-	for (int i = 0; i < 8; i++)
-		std::cout << *(output + (sizeof(char) * i)) << std::endl;
-	 
+	try {
+		output = new char[outputSize] ;
+	}
+	catch ( std::exception & e) {
+		std::cout << e.what() << std::endl;
+		return (NULL);
+	}
+
+	srand(time(NULL));
+	for (size_t i = 0; i < char1End; i++)
+		reinterpret_cast<char *>(output)[i] = (rand() % 2 == 0) ? rand() % 26 + 'a' : rand() % 10 + '0';
+
+	reinterpret_cast<int *>(output)[intEnd] = rand();
+
+	for (size_t i = intEnd; i < char2End; i++)
+		reinterpret_cast<char *>(output)[i] = (rand() % 2 == 0) ? rand() % 26 + 'a' : rand() % 10 + '0';
+
+	return (output);
 }
 
-//Data * deserialize(void * raw)	{
+Data * deserialize(void * raw)	{
 
+	Data * dataOutput = new Data;
 
-//}
+	for (size_t i = 0; i < char1End; i++)
+		dataOutput->s1.push_back(reinterpret_cast<char*>(raw)[i]);
+
+	dataOutput->n = reinterpret_cast<int *>(raw)[intEnd];
+
+	for (size_t i = intEnd; i < char2End; i++)
+		dataOutput->s2.push_back(reinterpret_cast<char*>(raw)[i]);
+
+	return (dataOutput);
+}
 
 int		main( void ) 	{
 
-	serialize();
+	void * output = serialize();
+
+	std::cout << RED_COLOR << std::endl << "[Serialize output: Dump Memory byte per byte]" << RESET_COLOR << std::endl;
+	for (size_t i = 0; i < char1End; i++)
+		std::cout << "[" << i << "] " << reinterpret_cast<char *>(output)[i] << std::endl;
+	std::cout << "[int] " << reinterpret_cast<int *>(output)[intEnd] << std::endl;
+	for (size_t i = intEnd; i < char2End; i++)
+		std::cout << "[" << i << "] " << reinterpret_cast<char *>(output)[i] << std::endl;
+
+	Data * dataOutput = deserialize(output);
+
+	std::cout << RED_COLOR << std::endl << "[Deserialize output: Print Data Structure]" << RESET_COLOR << std::endl;
+	std::cout << "Data->s1 = [" << dataOutput->s1 << "]" << std::endl;
+	std::cout << "Data->n  = [" << dataOutput->n << "]" << std::endl;
+	std::cout << "Data->s2 = [" << dataOutput->s2 << "]" << std::endl;
+
+	delete [] (reinterpret_cast<char *>(output));
+	delete dataOutput;
 
 	return (0);
 }
