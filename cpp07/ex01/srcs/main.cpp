@@ -10,6 +10,22 @@
 # define RED_COLOR    "\033[31m"
 #endif
 
+class Awesome	{
+
+	public:
+		Awesome ( void ) : _n(42) { return; }
+		int		get( void ) const { return this->_n; }
+
+	private:
+		int		_n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs)	{ o << rhs.get(); return o; }
+
+template< typename T>
+void print(T const & x) { std::cout << x << std::endl; return; }
+
+
 void	functionChar(char &val)	{
 
 	val = 42;
@@ -29,13 +45,13 @@ int		main( void ) 	{
 
 
 		std::cout << RED_COLOR << "[Iter with function template as argument (add 10)]" << RESET_COLOR << std::endl;
-		iter<int>(array, 10, &function<int>);
+		iter(array, 10, &function<int>);
 
 		for (size_t i = 0; i < 10; i++)
 			std::cout << "[" << i << "] - " << array[i] << std::endl;
 
 		std::cout << RED_COLOR << "[Iter with regular function as argument (change value to 42)]" << RESET_COLOR << std::endl;
-		iter<int>(array, 10, &functionInt);
+		iter(array, 10, &functionInt);
 
 		for (size_t i = 0; i < 10; i++)
 			std::cout << "[" << i << "] - " << array[i] << std::endl;
@@ -49,18 +65,25 @@ int		main( void ) 	{
 
 
 		std::cout << RED_COLOR << "[Iter with function template as argument (add 10)]" << RESET_COLOR << std::endl;
-		iter<char>(array, 10, &function<char>);
+		iter(array, 10, &function<char>);
 
 		for (size_t i = 0; i < 10; i++)
 			std::cout << "[" << i << "] - " << array[i] << std::endl;
 
 		std::cout << RED_COLOR << "[Iter with regular function as argument (change value to 42)]" << RESET_COLOR << std::endl;
-		iter<char>(array, 10, &functionChar);
+		iter(array, 10, &functionChar);
 
 		for (size_t i = 0; i < 10; i++)
 			std::cout << "[" << i << "] - " << array[i] << std::endl;
 	}
+	{
+		std::cout << std::endl << RED_COLOR << "-------- [TEST WITH COMPLEX CLASS AND CONST FUNCTION] -----------" << RESET_COLOR << std::endl;
+		int tab[] = { 0,1,2,3,4 };
+		Awesome tab2[5];
 
+		iter(tab, 5, print);
+		iter(tab2, 5, print);
+	}
 
 	return (0);
 }
