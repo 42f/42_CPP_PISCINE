@@ -1,26 +1,16 @@
 # include "Span.hpp"
 
-#include <algorithm>    // std::sort
-#include <vector>       // std::vector
+# include <algorithm>    // std::sort
+# include <limits>
 
 /*
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-Span::Span( void ) : _size(0)	{
+Span::Span( void ) : _sizeMax(0)	{
 }
 
-Span::Span( unsigned int N ) : _size(N)	{
-
-	try
-	{
-		this->_intArr = new int [N];
-		this->_storedNumber = 0;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+Span::Span( unsigned int N ) : _sizeMax(N)	{
 
 }
 
@@ -43,8 +33,6 @@ Span::Span( const Span & src )	{
 
 Span::~Span()	{
 
-	if (this->_size != 0)
-		delete [] this->_intArr;
 }
 
 
@@ -57,20 +45,8 @@ Span &				Span::operator=( Span const & rhs )	{
 
 	if ( this != &rhs )
 	{
-		if (this->_size != 0)
-			delete [] this->_intArr;
-		try
-		{
-			this->_intArr = new int [rhs._size];
-			this->_storedNumber = rhs._storedNumber;
-			for (unsigned int i = 0; i < this->_storedNumber; i++)
-				this->_intArr[i] = rhs._intArr[i];
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-
+		this->_intStorage = rhs._intStorage;
+		this->_sizeMax = rhs._sizeMax;
 	}
 	return *this;
 }
@@ -96,39 +72,62 @@ std::ostream &			operator<<( std::ostream & o, Span const & i )	{
 
 void	Span::printNumbers( void )	{
 
-	for (unsigned int i = 0; i < this->_storedNumber; i++)
-	std::cout << "[" << i << "] \t" << this->_intArr[i] << std::endl;
+	for (std::vector<int>::iterator it = this->_intStorage.begin();
+		it != this->_intStorage.end(); ++it)
+	std::cout << "\t" << *it << std::endl;
+	// std::cout << "[" << it << "] \t" << *it << std::endl;
 }
 
 void	Span::addNumber( int const newNumber )	{
 
-	if (this->_storedNumber < this->_size)
-	{
-		this->_intArr[this->_storedNumber] = newNumber;
-		this->_storedNumber++;
-	}
+	if (this->_intStorage.size() < this->_sizeMax)
+		this->_intStorage.push_back(newNumber);
 	else
 		throw Span::SpanExceptionOutofCapacy();
 }
 
-int	Span::longestSpan( void )	{
+void	Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end )	{
 
-	if (this->_storedNumber > 1)	{
+	std::vector<int>::iterator	endCopy = end;
 
-		int min = *std::min_element(this->_intArr, this->_intArr + this->_storedNumber);
-		int max = *std::max_element(this->_intArr, this->_intArr + this->_storedNumber);
+	if (end - begin + this->_intStorage.size() > this->_sizeMax)
+		endCopy = begin + this->_sizeMax - this->_intStorage.size();
+
+	for (std::vector<int>::iterator it = begin; it != endCopy; it++)
+		this->_intStorage.push_back(*it);
+
+	if (end != endCopy)
+		throw Span::SpanExceptionOutofCapacy();
+}
+
+unsigned int	Span::longestSpan( void )	{
+
+	if (this->_intStorage.size() > 1)	{
+
+		unsigned int min = *std::min_element(this->_intStorage.begin(), this->_intStorage.end());
+		unsigned int max = *std::max_element(this->_intStorage.begin(), this->_intStorage.end());
 		return (max - min);
 	}
 	else
 		throw Span::SpanExceptionNoSpan();
 }
 
-int	Span::shortestSpan( void )	{
+unsigned int	Span::shortestSpan( void )	{
 
-	if (this->_storedNumber > 1)	{
+	if (this->_intStorage.size() > 1)	{
 
-		std::vector<int> tmp (this->_intArr, this->_intArr + this->_storedNumbe);
-		return (max - min);
+		std::vector<int>	tmp = this->_intStorage;
+		unsigned int		shortestSpan = std::numeric_limits<unsigned int>::max();
+		unsigned int		tmpSpan;
+
+		std::sort(tmp.begin(), tmp.end());
+
+		for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end() - 1; ++it)
+		{
+			if ((tmpSpan = *(it + 1) - *(it)) < shortestSpan)
+				shortestSpan = tmpSpan;
+		}
+		return(shortestSpan);
 	}
 	else
 		throw Span::SpanExceptionNoSpan();

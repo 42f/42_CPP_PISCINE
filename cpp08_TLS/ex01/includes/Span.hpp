@@ -4,6 +4,7 @@
 //# include ""
 # include <iostream>
 # include <string>
+# include <vector>
 
 class Span
 {
@@ -28,16 +29,16 @@ class Span
 
 		Span &		operator=( Span const & rhs );
 
-		int				longestSpan( void );
-		int				shortestSpan( void );
+		unsigned int	longestSpan( void );
+		unsigned int	shortestSpan( void );
 		void			addNumber( int const newNumber );
+		void			addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end );
 		void			printNumbers( void );
 
 	private:
 
-		unsigned int	_storedNumber;
-		unsigned int	_size;
-		int	*			_intArr;
+		unsigned int		_sizeMax;
+		std::vector<int>	_intStorage;
 };
 
 //std::ostream &			operator<<( std::ostream & o, Span const & i );
