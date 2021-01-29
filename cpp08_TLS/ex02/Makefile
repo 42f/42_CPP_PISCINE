@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp08_00
+NAME := cpp08_02
 INCLUDES = ./includes
 SRCS_DIR = ./srcs
 CC = clang++
@@ -58,8 +58,9 @@ ifeq ($(debug_mode), 1)
 	CFLAGS += -D DEBUG_MODE=1
 endif
 
-HEADER += ./easyfind.hpp
+HEADER += ./MutantStack.hpp
 
+SRCS += ./MutantStack.cpp
 SRCS += ./main.cpp
 
 vpath %.cpp ./srcs

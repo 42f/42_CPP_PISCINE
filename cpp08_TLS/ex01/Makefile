@@ -3,7 +3,7 @@ BOLD = \033[1m
 GREEN = \033[32m
 YELLOW = \033[33m
 
-NAME := cpp07_00
+NAME := cpp08_01
 INCLUDES = ./includes
 SRCS_DIR = ./srcs
 CC = clang++
