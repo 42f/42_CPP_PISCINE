@@ -12,10 +12,17 @@
 template< typename T>
 class test : public std::stack< T, std::list<T> >
 {
+	public:
 	class nested : public test	{
 		public:
-		void get( void ) { std::cout << this->top() << std::endl; }
+		nested( void )	{ this->X = test::X; };
+		void get( void ) { std::cout << this->X << std::endl; }
 	};
+
+	void set( int i )	{ this->X = i; };
+
+	private:
+		int X;
 };
 
 int main( void )	{
@@ -25,7 +32,9 @@ int main( void )	{
 
 	std::cout << "empty top : " << &a.top() << std::endl;
 
-
+	a.set(42);
+	test<int>::nested	c;
+	c.get();
 	return 0;
 
 	a.push(11);

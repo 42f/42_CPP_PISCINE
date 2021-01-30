@@ -53,16 +53,39 @@ int main( void ) 	{
 	std::cout << std::endl << RED_COLOR << "~~~~~~~~~~    MAIN BVALETTE #1  ~~~~~~~~" << RESET_COLOR << std::endl;
 	{
 		MutantStack<int> mstack;
+		mstack.push(33);
 		mstack.push(42);
 		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
-		mstack.push(17);
+
+{
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		std::cout << "Value at it  -> " << it.current() << std::endl;
+		std::cout << "Value at ite -> " << ite.current() << std::endl;
+}
+		mstack.push(21);
 		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
-		mstack.push(17);
-		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
-		mstack.push(17);
-		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
-		mstack.push(999);
-		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
+{
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		std::cout << "Value at it  -> " << it.current() << std::endl;
+		std::cout << "Value at ite -> " << ite.current() << std::endl;
+}
+	}
+
+
+
+
+
+		// std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
+		// mstack.push(17);
+		// std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
+		// mstack.push(17);
+		// std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
+		// mstack.push(17);
+		// std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
+		// mstack.push(999);
+		// std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 
 
 		// mstack.pop();
@@ -80,19 +103,19 @@ int main( void ) 	{
 		// MutantStack<int>::iterator it;
 		// MutantStack<int>::iterator it = &(mstack.top());
 
-		std::cout << "----" << std::endl;
+		// std::cout << "----" << std::endl;
 
-		MutantStack<int>::iterator it = mstack.begin();
-		std::cout << " @ it  " << *it << std::endl;
-		// std::cout << "iterator derefer " << *it << std::endl;
-		std::cout << "----" << std::endl;
-		MutantStack<int>::iterator ite = mstack.end();
-		std::cout << " @ ite " << *ite << std::endl;
-		// std::cout << "iterator derefer " << *ite << std::endl;
-		++it;
-		// ++ite;
-		std::cout << " @ ite after ++ " << *it << std::endl;
-		// std::cout << "iterator address " << *it << std::endl;
+		// MutantStack<int>::iterator it = mstack.begin();
+		// std::cout << " @ it  " << *it << std::endl;
+		// // std::cout << "iterator derefer " << *it << std::endl;
+		// std::cout << "----" << std::endl;
+		// MutantStack<int>::iterator ite = mstack.end();
+		// std::cout << " @ ite " << *ite << std::endl;
+		// // std::cout << "iterator derefer " << *ite << std::endl;
+		// ++it;
+		// // ++ite;
+		// std::cout << " @ ite after ++ " << *it << std::endl;
+		// // std::cout << "iterator address " << *it << std::endl;
 		// --it;
 
 		// while (it != ite) {
@@ -103,7 +126,7 @@ int main( void ) 	{
 		// std::stack<int> s(mstack);
 		// std::cout << "(s) top value : " << s.top() << std::endl;
 		// std::cout << "(s)  SIZE = " << s.size() << std::endl;
-	}
+	// }
 
 	return 0;
 }
