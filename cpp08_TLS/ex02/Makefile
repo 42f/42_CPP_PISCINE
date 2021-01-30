@@ -60,7 +60,7 @@ endif
 
 HEADER += ./MutantStack.hpp
 
-# SRCS += ./MutantStack.cpp
+SRCS += ./MutantStack.cpp
 SRCS += ./main.cpp
 
 vpath %.cpp ./srcs

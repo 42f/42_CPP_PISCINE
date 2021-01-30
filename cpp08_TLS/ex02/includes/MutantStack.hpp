@@ -2,54 +2,25 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
-# include <string>
 # include <stack>
-# include <list>
 # include <iterator>
 
-#include <algorithm>
-#include <numeric>
-
-template< typename T>
-class MutantStack : public std::stack< T, std::list<T> >
-{
+template<typename T>
+class MutantStack : public std::stack<T> {
 
 	public:
 
-		class iterator	{
+		MutantStack(void);
+		MutantStack(MutantStack const &src);
 
-			public:
-				iterator( MutantStack &is ) : _s(is), _index(0) {};
-				iterator( MutantStack &is, bool ) : _s(is), _index(_s.top()) {};
+		~MutantStack(void);
 
-				T	current( void )	{ return _s.top(); };
+		MutantStack	&operator=(MutantStack const &rhs);
 
-				// std::ostream &			operator<<( std::ostream & o, MutantStack const & i )	{
+		typedef typename std::stack<T>::container_type::iterator iterator;
 
-				// 	o << i.current();
-    			// 	return o;
-				// };
-			private:
-                MutantStack&	_s;
-                int				_index;
-
-		};
-
-		iterator begin()	{ return iterator(*this); }
-		iterator end()		{ return iterator(*this, true);	}
-
-		MutantStack( void ) {};
-		~MutantStack( void ) {};
-
-
-	private:
-
-		// KEEP ME
-		// MutantStack &		operator=( MutantStack const & rhs );
-		// MutantStack( MutantStack const & src );
+		iterator	begin(void) { return (this->c.begin()); };
+		iterator	end(void) { return (this->c.end()); };
 };
-
-
-// std::ostream &			operator<<( std::ostream & o, MutantStack const & i );
 
 #endif /* *****BVALETTE****** MUTANTSTACK_H */
