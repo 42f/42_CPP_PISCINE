@@ -1,5 +1,5 @@
 # include "MutantStack.hpp"
-# include "MutantStack.cpp"
+// # include "MutantStack.cpp"
 
 #ifndef RESET_COLOR
 # define RESET_COLOR   "\033[0m"
@@ -54,14 +54,16 @@ int main( void ) 	{
 	{
 		MutantStack<int> mstack;
 		mstack.push(42);
+		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 		mstack.push(17);
+		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 		mstack.push(17);
+		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 		mstack.push(17);
-		mstack.push(17);
-		mstack.push(17);
+		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 		mstack.push(999);
+		std::cout << "added " << mstack.top() << "\t @ " << &(mstack.top()) << std::endl;
 
-		// std::cout << "top value : " << mstack.top() << std::endl;
 
 		// mstack.pop();
 
@@ -77,16 +79,19 @@ int main( void ) 	{
 
 		// MutantStack<int>::iterator it;
 		// MutantStack<int>::iterator it = &(mstack.top());
+
+		std::cout << "----" << std::endl;
+
 		MutantStack<int>::iterator it = mstack.begin();
 		std::cout << " @ it  " << *it << std::endl;
 		// std::cout << "iterator derefer " << *it << std::endl;
-		(void)it;
+		std::cout << "----" << std::endl;
 		MutantStack<int>::iterator ite = mstack.end();
 		std::cout << " @ ite " << *ite << std::endl;
-		std::cout << " @ it  " << *it << std::endl;
 		// std::cout << "iterator derefer " << *ite << std::endl;
-		(void)ite;
-		// ++it;
+		++it;
+		// ++ite;
+		std::cout << " @ ite after ++ " << *it << std::endl;
 		// std::cout << "iterator address " << *it << std::endl;
 		// --it;
 

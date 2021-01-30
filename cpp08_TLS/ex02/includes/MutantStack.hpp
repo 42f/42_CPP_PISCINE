@@ -16,32 +16,99 @@ class MutantStack : public std::stack< T, std::list<T> >
 
 	public:
 
-		struct iterator
+		class iterator : public MutantStack
 		{
-			typedef	std::forward_iterator_tag 	iterator_categor;
-		    typedef	std::ptrdiff_t 	difference_type;
-		    typedef	T 	value_type;
-		    typedef	T* 	pointer;
-		    typedef	T& 	reference;
 
-			iterator(pointer ptr) : _ptr(ptr)	{ std::cout << this << std::endl;}
+			public:
+				typedef	std::forward_iterator_tag	iterator_categor;
+				typedef	std::ptrdiff_t				difference_type;
+				typedef	T 							value_type;
+				typedef	T* 							pointer;
+				typedef	T& 							reference;
 
-			reference operator*() const { return *_ptr; }
-    		pointer operator->() { return _ptr; }
+				iterator(pointer ptr) : _ptr(ptr)	{
 
-    		// Prefix increment
-    		iterator& operator++() { _ptr++; return *this; }
+					std::cout << "IT    Instanciate with : " << this->_ptr << std::endl;
+					std::cout << "IT    Instanciate @    : " << this << std::endl;
+				}
 
-    		// Postfix increment
-    		iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; }
+
+				reference	operator*() const	{ return *_ptr; }
+				pointer 	operator->()		{ return _ptr; }
+
+				// Prefix increment
+				iterator&	operator++() {
+
+
+					// size_t size = this->size() - 1;
+					// std::stack< T, std::list<T> >	tmpStack;
+					// for (size_t i = 0; i < size; i++)
+					// {
+					// 	tmpStack.push(this->top());
+					// 	this->pop();
+					// }
+					// iterator	end = &(this->top());
+					// for (size_t i = 0; i < size; i++)
+					// {
+					// 	this->push(tmpStack.top());
+					// 	tmpStack.pop();
+					// }
+					// return end;
+
+
+					// size_t size = this->size() - 1;
+					// std::stack< T, std::list<T> >	tmpStack;
+
+					// size_t	i = 0;
+					// iterator b = this->begin();
+					std::cout << "--------->  " << this->_ptr << std::endl;
+					std::cout << "--------->  " << MutantStack::top() << std::endl;
+					// while (i < size)
+					// {
+						// if (this->top() == *_ptr)
+						// 	break ;
+					// 	tmpStack.push(this->top());
+					// 	this->pop();
+					// 	i++;
+					// }
+
+					// this->push(tmpStack.top());
+					// tmpStack.pop();
+					// _ptr = &(this->top());
+					iterator & 	newIt = *this;
+
+					// i++;
+					// i = 0;
+					// while (i < size)
+					// {
+					// 	this->push(tmpStack.top());
+					// 	tmpStack.pop();
+					// 	i++;
+					// }
+					return newIt;
+
+
+
+
+
+					// _ptr++;
+
+					// std::cout << "pre inc: address " << _ptr << "\t value " << *_ptr << std::endl;
+					// return *this;
+				}
+
+				// Postfix increment
+				iterator	operator++(int)		{ iterator tmp = *this; ++(*this); return tmp; }
+
+				int		getPos( void )	const {	return this->_pos;	}
 
 			private:
 				pointer	_ptr;
-
+				int		_pos;
 		};
 
-		iterator begin() { return iterator(&this->top()); }
-		iterator end() {
+		iterator end() { return iterator(&this->top()); }
+		iterator begin() {
 
 			size_t size = this->size() - 1;
 			std::stack< T, std::list<T> >	tmpStack;
@@ -57,72 +124,20 @@ class MutantStack : public std::stack< T, std::list<T> >
 				tmpStack.pop();
 			}
 			return end;
+		}
 
-			}
-		// iterator end()   { return iterator(&this + this.size()); } // 200 is out of boundsm
+		MutantStack( void )	{
 
-		MutantStack( void );
-		~MutantStack( void );
-
-	private:
-		MutantStack &		operator=( MutantStack const & rhs );
-		MutantStack( MutantStack const & src );
-};
-/**
-template< typename T>
-class MutantStack : public std::stack<T>
-{
-
-	public:
-
-		typedef int size_type;
-
-		class iterator
-		{
-			public:
-				typedef iterator self_type;
-
-				typedef T  	value_type;
-				typedef T&	reference;
-				typedef T*	pointer;
-
-				typedef 	std::forward_iterator_tag iterator_category;
-				typedef 	int difference_type;
-
-                iterator( pointer ptr ) : _ptr(ptr) {};
-
-				// self_type 	operator++() { self_type i = *this; ptr_++; return i; };
-				// self_type 	operator++(__attribute__((unused))int junk) { ptr_++; return *this; };
-
-				reference 	operator*() { return *_ptr; };
-
-				pointer 		operator->() { return _ptr; };
-				// bool 		operator==(const self_type& rhs) { return ptr_ == rhs.ptr_; };
-				// bool 		operator!=(const self_type& rhs) { return ptr_ != rhs.ptr_; };
-
-			private:
-				pointer _ptr;
+			std::cout << "STACK Instanciate @    : " << this << std::endl;
 		};
-
-		MutantStack( void );
-		~MutantStack( void );
-
-		iterator begin()
-        {
-			std::cout << "val this " << this << std::endl;
-            return (this);
-        };
-
-		// iterator end()
-        // {
-        //     return iterator(this + this->size());
-        // };
+		~MutantStack( void ){};
 
 	private:
 		MutantStack &		operator=( MutantStack const & rhs );
 		MutantStack( MutantStack const & src );
 };
+
 
 // std::ostream &			operator<<( std::ostream & o, MutantStack const & i );
-*/
+
 #endif /* *****BVALETTE****** MUTANTSTACK_H */
