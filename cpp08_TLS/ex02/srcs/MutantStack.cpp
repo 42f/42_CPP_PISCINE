@@ -57,11 +57,6 @@ MutantStack<T>	&MutantStack<T>::operator=(MutantStack const &rhs) {
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ACCESSOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-// template< typename T>
-// iterator	MutantStack<T>::begin( void )	{
-// 	std::cout << "COUCOU" << std::endl;
-// }
-
 /*
 ** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ NESTED CLASS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */

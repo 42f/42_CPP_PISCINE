@@ -14,7 +14,7 @@
 
 void	randval( int &a )	{
 
-	a = rand() % 1000;
+	a = rand() % 1001;
 }
 
 void	printval( int &a )	{
@@ -116,12 +116,12 @@ int main( void ) 	{
 	std::cout << std::endl << RED_COLOR << "~~~~~~~~~~    MAIN BVALETTE #3    ~~~~~~~~" << RESET_COLOR << std::endl;
 
 	{
-		std::cout << std::endl << RED_COLOR << "[ Instanciate a VECTOR with 10000 ints capacity ]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[ Instanciate a VECTOR with 1000000 ints capacity ]" << RESET_COLOR << std::endl;
 		std::vector<int>	vInt(1000000);
 
 		srand(time(NULL));
 		std::for_each(vInt.begin(), vInt.end(), &randval);
-		std::cout << std::endl << RED_COLOR << "[ Instanciate a span with 10000 ints capacity ]" << RESET_COLOR << std::endl;
+		std::cout << std::endl << RED_COLOR << "[ Instanciate a span with 1000000 ints capacity ]" << RESET_COLOR << std::endl;
 		Span sp = Span(1000000);
 		std::cout << std::endl << RED_COLOR << "[ Add 3 ints in Span ]" << RESET_COLOR << std::endl;
 
@@ -137,7 +137,7 @@ int main( void ) 	{
 		}
 		std::cout << std::endl << RED_COLOR << "[ Calling functions longestSpan and shortestSpan ]" << RESET_COLOR << std::endl;
 		std::cout << "LONGUEST = " << sp.longestSpan() << std::endl;
-		std::cout << "SHORTEST = " << sp.shortestSpan() << std::endl;
+		std::cout << "SHORTEST = " << sp.shortestSpan() << std::endl << std::endl;
 		// sp.printNumbers();
 	}
 
