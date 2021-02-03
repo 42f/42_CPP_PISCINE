@@ -75,7 +75,6 @@ void	Span::printNumbers( void )	{
 	for (std::vector<int>::iterator it = this->_intStorage.begin();
 		it != this->_intStorage.end(); ++it)
 	std::cout << "\t" << *it << std::endl;
-	// std::cout << "[" << it << "] \t" << *it << std::endl;
 }
 
 void	Span::addNumber( int const newNumber )	{
@@ -89,12 +88,15 @@ void	Span::addNumber( int const newNumber )	{
 void	Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end )	{
 
 	std::vector<int>::iterator	endCopy = end;
+	size_t						originalSize = this->_intStorage.size();
 
-	if (end - begin + this->_intStorage.size() > this->_sizeMax)
-		endCopy = begin + this->_sizeMax - this->_intStorage.size();
+	if (end - begin + originalSize > this->_sizeMax)
+		endCopy = begin + (this->_sizeMax - originalSize);
 
-	for (std::vector<int>::iterator it = begin; it != endCopy; it++)
-		this->_intStorage.push_back(*it);
+	this->_intStorage.resize(endCopy - begin + originalSize);
+	std::vector<int>::iterator it = this->_intStorage.begin() + originalSize;
+
+	std::copy(begin, endCopy, it);
 
 	if (end != endCopy)
 		throw Span::SpanExceptionOutofCapacy();
@@ -122,7 +124,7 @@ unsigned int	Span::shortestSpan( void )	{
 
 		std::sort(tmp.begin(), tmp.end());
 
-		for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end() - 1; ++it)
+		for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
 		{
 			if ((tmpSpan = *(it + 1) - *(it)) < shortestSpan)
 				shortestSpan = tmpSpan;

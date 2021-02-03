@@ -83,5 +83,21 @@ int main( void ) 	{
 
 		std::list<int> s(mstack);
 	}
+	std::cout << std::endl << RED_COLOR << "~~~~~~~~~~   operator= overload  ~~~~~~~~" << RESET_COLOR << std::endl;
+	{
+		MutantStack<int> mstack0;
+		MutantStack<int> mstack1;
+
+		mstack0.push(5);
+		mstack0.push(17);
+		mstack0.push(42);
+		std::cout << "top of mstack0 -> " << mstack0.top() << " @ " << &(mstack0.top()) << std::endl;
+
+		std::cout << std::endl << RED_COLOR << "mstack1 = mstack0" << RESET_COLOR << std::endl;
+		mstack1 = mstack0;
+
+		std::cout << "top of mstack0 -> " << mstack0.top() << " @ " << &(mstack0.top()) << std::endl;
+		std::cout << "top of mstack1 -> " << mstack1.top() << " @ " << &(mstack1.top()) << std::endl;
+	}
 	return 0;
 }
